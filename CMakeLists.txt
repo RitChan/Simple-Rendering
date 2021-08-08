@@ -5,4 +5,9 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(OpenCV REQUIRED PATHS "C:/Users/Ritee/MyFiles/r-lib/cxx_lib/opencv_mingw")
 
-include_directories("C:/Users/Ritee/MyFiles/r-libcxx_lib/eigen3.3.9")
+include_directories("C:\\Users\\Ritee\\MyFiles\\r-lib\\cxx_lib\\eigen3.3.9")
+include_directories(rendering ${OpenCV_INCLUDE_DIRS})
+link_libraries(${OpenCV_LIBS})
+
+add_subdirectory(rendering)
+add_subdirectory(render_simple)

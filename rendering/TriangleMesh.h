@@ -1,0 +1,24 @@
+// Created by Ritee
+// Copyright (c) 2021 Ritee All rights reserved.
+
+#ifndef RENDERING_TRIANGLEMESH_H
+#define RENDERING_TRIANGLEMESH_H
+#include "Eigen/Eigen"
+#include <vector>
+
+struct TriangleMesh {
+public:
+    uint32_t triangle_count() {
+        if (indices.empty())
+            return vertices.size() / 3;
+        return indices.size();
+    }
+
+    std::vector<Eigen::Vector3f> vertices;
+    std::vector<Eigen::Vector2f> tex_uv;
+    std::vector<Eigen::Vector3f> normals;
+    std::vector<Eigen::Vector3f> colors;
+    std::vector<Eigen::Vector3i> indices;
+    Eigen::Matrix4f world_mat;
+};
+#endif //RENDERING_TRIANGLEMESH_H
