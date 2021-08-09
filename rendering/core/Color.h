@@ -7,12 +7,10 @@
 #include "Eigen/Eigen"
 #include <vector>
 
-namespace Color {
-    typedef Eigen::Vector3f Color;
-    extern Color COLOR_RED;
-    extern Color COLOR_GREEN;
-    extern Color COLOR_BLUE;
-}
+typedef Eigen::Vector3f Color;
+extern Color COLOR_RED;
+extern Color COLOR_GREEN;
+extern Color COLOR_BLUE;
 
 struct RGB {
 public:

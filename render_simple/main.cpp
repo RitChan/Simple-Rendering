@@ -26,9 +26,9 @@ int main() {
     };
 
     mesh.colors = vector<Vector3f>{
-            Color::COLOR_RED,
-            Color::COLOR_GREEN,
-            Color::COLOR_BLUE
+            COLOR_RED,
+            COLOR_GREEN,
+            COLOR_BLUE
     };
 
     mesh.indices = vector<Vector3i>{
