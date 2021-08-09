@@ -1,2 +1,5 @@
 link_libraries(Rendering)
-add_executable(demo main.cpp ../rendering/primitive_impl/SimpleTriangle.h ../rendering/shader_impl/SimpleShader.h ../rendering/primitive_impl/SimpleTriangle.cpp ../rendering/rasterizer_impl/SimpleRasterizer.h ../rendering/rasterizer_impl/SimpleRasterizer.cpp SimpleRenderer.cpp SimpleRenderer.h)
+add_executable(demo 
+    main.cpp
+    SimpleRenderer.cpp 
+    SimpleRenderer.h)
