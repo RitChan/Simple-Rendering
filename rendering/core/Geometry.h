@@ -12,5 +12,5 @@ Eigen::Matrix4f create_view_matrix(Eigen::Vector3f camera_position, Eigen::Vecto
 Eigen::Matrix4f create_perspective(float fov_radius, float aspect_ratio, float near_distance, float far_distance);
 
 
-Eigen::Vector3f transform_point(Eigen::Matrix4f transform, Eigen::Vector3f point);
+Eigen::Vector3f transform_point(const Eigen::Matrix4f& transform, const Eigen::Vector3f &point);
 #endif //RENDERING_GEOMETRY_H
