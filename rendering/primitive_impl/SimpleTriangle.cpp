@@ -2,7 +2,7 @@
 // Copyright (c) 2021 Ritee All rights reserved.
 
 #include "SimpleTriangle.h"
-#include "SimpleShader.h"
+#include "shader_impl/SimpleShader.h"
 #include "Eigen/Eigen"
 
 IShader *SimpleTriangle::get_shader() const {

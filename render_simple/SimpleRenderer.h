@@ -4,9 +4,9 @@
 #ifndef RENDERING_SIMPLERENDERER_H
 #define RENDERING_SIMPLERENDERER_H
 
-#include "Rendering.h"
+#include "RenderingCore.h"
 #include "Eigen/Eigen"
-#include "SimpleTriangle.h"
+#include "primitive_impl/SimpleTriangle.h"
 #include "opencv2/opencv.hpp"
 
 cv::Mat pixels_to_cv_mat(uint32_t width, uint32_t height, const std::vector<Eigen::Vector3f> &pixels);
@@ -16,7 +16,7 @@ public:
     void render();
     SimpleTriangle vertex_shader(uint32_t tri_index);
 
-    Rasterizer *rasterizer_{nullptr};
+    ARasterizer *rasterizer_{nullptr};
     TriangleMesh *mesh_{nullptr};
     Eigen::Matrix4f view_;
     Eigen::Matrix4f projection_;

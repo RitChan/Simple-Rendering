@@ -4,7 +4,7 @@
 #ifndef RENDERING_SIMPLETRIANGLE_H
 #define RENDERING_SIMPLETRIANGLE_H
 
-#include "Rendering.h"
+#include "RenderingCore.h"
 #include "Eigen/Eigen"
 #include <cmath>
 

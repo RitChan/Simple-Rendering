@@ -2,10 +2,9 @@
 // Created by Ritee on 2021/8/8.
 //
 #include "Eigen/Eigen"
-#include "SimpleRasterizer.h"
-#include "SimpleShader.h"
-#include "SimpleTriangle.h"
-#include "Rendering.h"
+#include "rasterizer_impl/SimpleRasterizer.h"
+#include "primitive_impl/SimpleTriangle.h"
+#include "RenderingCore.h"
 #include "opencv2/opencv.hpp"
 #include <vector>
 #include "SimpleRenderer.h"
@@ -27,9 +26,9 @@ int main() {
     };
 
     mesh.colors = vector<Vector3f>{
-            Color::RED,
-            Color::GREEN,
-            Color::BLUE
+            Color::COLOR_RED,
+            Color::COLOR_GREEN,
+            Color::COLOR_BLUE
     };
 
     mesh.indices = vector<Vector3i>{

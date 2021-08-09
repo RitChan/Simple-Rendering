@@ -4,7 +4,7 @@
 #ifndef RENDERING_SIMPLESHADER_H
 #define RENDERING_SIMPLESHADER_H
 
-#include "Rendering.h"
+#include "RenderingCore.h"
 #include "Eigen/Eigen"
 
 class SimpleShader : public IShader {

@@ -9,9 +9,9 @@
 
 namespace Color {
     typedef Eigen::Vector3f Color;
-    extern Color RED;
-    extern Color GREEN;
-    extern Color BLUE;
+    extern Color COLOR_RED;
+    extern Color COLOR_GREEN;
+    extern Color COLOR_BLUE;
 }
 
 struct RGB {

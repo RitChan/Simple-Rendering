@@ -5,9 +5,9 @@
 #include "Eigen/Eigen"
 
 namespace Color {
-    Color RED = Eigen::Vector3f(1, 0, 0);
-    Color GREEN = Eigen::Vector3f(0, 1, 0);
-    Color BLUE = Eigen::Vector3f(0, 0, 1);
+    Color COLOR_RED = Eigen::Vector3f(1, 0, 0);
+    Color COLOR_GREEN = Eigen::Vector3f(0, 1, 0);
+    Color COLOR_BLUE = Eigen::Vector3f(0, 0, 1);
 }
 
 RGB::RGB(const Eigen::Matrix<float, 3, 1> &vector) {

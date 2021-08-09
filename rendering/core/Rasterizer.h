@@ -9,9 +9,9 @@
 #include "Primitive.h"
 #include "Color.h"
 
-class Rasterizer {
+class ARasterizer {
 public:
-    Rasterizer(uint32_t width, uint32_t height) : width_(width), height_(height) {
+    ARasterizer(uint32_t width, uint32_t height) : width_(width), height_(height) {
         pixels_ = std::vector<Eigen::Vector3f>(width * height);
     }
 

@@ -3,13 +3,13 @@
 
 #ifndef RENDERING_SIMPLERASTERIZER_H
 #define RENDERING_SIMPLERASTERIZER_H
-#include "Rendering.h"
+#include "RenderingCore.h"
 #include <cstdint>
 #include <vector>
 
-class SimpleRasterizer : public Rasterizer {
+class SimpleRasterizer : public ARasterizer {
 public:
-    SimpleRasterizer(uint32_t width, uint32_t height): Rasterizer(width, height) {
+    SimpleRasterizer(uint32_t width, uint32_t height): ARasterizer(width, height) {
         z_buffer_ = Eigen::MatrixXf(height, width);
         for (uint32_t i = 0; i < height; i++) {
             for (uint32_t j = 0; j < width; j++) {

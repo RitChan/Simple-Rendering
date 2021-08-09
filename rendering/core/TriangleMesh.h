@@ -8,7 +8,7 @@
 
 struct TriangleMesh {
 public:
-    uint32_t triangle_count() {
+    uint32_t triangle_count() const {
         if (indices.empty())
             return vertices.size() / 3;
         return indices.size();
