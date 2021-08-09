@@ -2,6 +2,7 @@
 // Copyright (c) 2021 Ritee All rights reserved.
 
 #include "Color.h"
+
 #include "Eigen/Eigen"
 
 Color COLOR_RED = Eigen::Vector3f(1, 0, 0);

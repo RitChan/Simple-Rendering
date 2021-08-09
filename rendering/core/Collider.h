@@ -7,7 +7,7 @@
 #include <cstdint>
 
 struct BoundingBox {
-public:
+   public:
     int32_t left_ = 0;
     int32_t right_ = 0;
     int32_t top_ = 0;
@@ -15,8 +15,8 @@ public:
 
     BoundingBox() = default;
 
-    BoundingBox(int32_t left, int32_t right, int32_t bottom, int32_t top) : left_(left), right_(right), bottom_(bottom),
-                                                                            top_(top) {}
+    BoundingBox(int32_t left, int32_t right, int32_t bottom, int32_t top)
+        : left_(left), right_(right), bottom_(bottom), top_(top) {}
 };
 
-#endif //RENDERING_COLLIDER_H
+#endif  // RENDERING_COLLIDER_H

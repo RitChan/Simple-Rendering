@@ -14,7 +14,7 @@ class Camera {
 
     void move(Eigen::Vector3f displacement) { position += displacement; }
 
-    Eigen::Matrix4f to_view() { create_view_matrix(position, forward, up); }
+    Eigen::Matrix4f to_view() { return create_view_matrix(position, forward, up); }
 };
 
 #endif  // RENDERING_CORE_CAMERA_H

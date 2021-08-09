@@ -4,8 +4,9 @@
 #ifndef RENDERING_COLOR_H
 #define RENDERING_COLOR_H
 #include <cstdint>
-#include "Eigen/Eigen"
 #include <vector>
+
+#include "Eigen/Eigen"
 
 typedef Eigen::Vector3f Color;
 extern Color COLOR_RED;
@@ -13,7 +14,7 @@ extern Color COLOR_GREEN;
 extern Color COLOR_BLUE;
 
 struct RGB {
-public:
+   public:
     uint8_t r;
     uint8_t g;
     uint8_t b;
@@ -22,4 +23,4 @@ public:
 };
 
 uint8_t to_color_uint8(float color);
-#endif //RENDERING_COLOR_H
+#endif  // RENDERING_COLOR_H
