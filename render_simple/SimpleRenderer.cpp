@@ -5,22 +5,6 @@
 #include "Eigen/Eigen"
 #include <iostream>
 
-cv::Mat pixels_to_cv_mat(uint32_t width, uint32_t height, const std::vector<Eigen::Vector3f> &pixels) {
-    uint8_t *data = new uint8_t[width * height * 3];
-    for (uint32_t row = 0; row < height; row++) {
-        for (uint32_t col = 0; col < width; col++) {
-            uint32_t pixel_idx = row * width + col;
-            uint32_t data_idx = 3 * ((height - 1 - row) * width + col);
-            data[data_idx + 0] = to_color_uint8(pixels.at(pixel_idx).x());
-            data[data_idx + 1] = to_color_uint8(pixels.at(pixel_idx).y());
-            data[data_idx + 2] = to_color_uint8(pixels.at(pixel_idx).z());
-        }
-    }
-    auto result = cv::Mat(height, width, CV_8UC3, data);
-    cvtColor(result, result, cv::COLOR_RGB2BGR);
-    return result;
-}
-
 void SimpleRenderer::render() {
     Eigen::Matrix4f world_to_screen = viewport_ * projection_ * view_;
     for (uint32_t i = 0; i < mesh_->triangle_count(); i++) {
@@ -32,10 +16,8 @@ void SimpleRenderer::render() {
     }
     cv::Mat img_mat = cv::Mat(rasterizer_->height(), rasterizer_->width(), CV_32FC3, rasterizer_->data());
     cv::flip(img_mat, img_mat, 0);
-    while (cv::waitKey(1) != (int)'q') {
-        imshow("Triangle", img_mat);
-    }
-    img_mat.release();
+    imshow("Triangle", img_mat);
+    cv::waitKey();
 }
 
 SimpleTriangle SimpleRenderer::vertex_shader(uint32_t tri_index) {
