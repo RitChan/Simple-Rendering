@@ -5,8 +5,6 @@
 #include "Eigen/Eigen"
 #include <iostream>
 
-using namespace cv;
-
 cv::Mat pixels_to_cv_mat(uint32_t width, uint32_t height, const std::vector<Eigen::Vector3f> &pixels) {
     uint8_t *data = new uint8_t[width * height * 3];
     for (uint32_t row = 0; row < height; row++) {
@@ -18,8 +16,8 @@ cv::Mat pixels_to_cv_mat(uint32_t width, uint32_t height, const std::vector<Eige
             data[data_idx + 2] = to_color_uint8(pixels.at(pixel_idx).z());
         }
     }
-    auto result = Mat(height, width, CV_8UC3, data);
-    cvtColor(result, result, COLOR_RGB2BGR);
+    auto result = cv::Mat(height, width, CV_8UC3, data);
+    cvtColor(result, result, cv::COLOR_RGB2BGR);
     return result;
 }
 
@@ -32,8 +30,9 @@ void SimpleRenderer::render() {
         triangle.v2_ = transform_point(world_to_screen, triangle.v2_);
         rasterizer_->rasterize(triangle);
     }
-    cv::Mat img_mat = pixels_to_cv_mat(rasterizer_->width(), rasterizer_->height(), rasterizer_->pixels());
-    while (waitKey(1) != (int)'q') {
+    cv::Mat img_mat = cv::Mat(rasterizer_->height(), rasterizer_->width(), CV_32FC3, rasterizer_->data());
+    cv::flip(img_mat, img_mat, 0);
+    while (cv::waitKey(1) != (int)'q') {
         imshow("Triangle", img_mat);
     }
     img_mat.release();
