@@ -11,3 +11,4 @@ link_libraries(${OpenCV_LIBS})
 
 add_subdirectory(rendering)
 add_subdirectory(render_simple)
+add_subdirectory(render_transform)
