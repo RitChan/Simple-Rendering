@@ -25,3 +25,9 @@ void SimpleRasterizer::rasterize(IPrimitive &primitive) {
         }
     }
 }
+
+
+void SimpleRasterizer::clear(const Eigen::Vector3f &color) {
+    ARasterizer::clear(color);
+    z_buffer_.setConstant(-INFINITY);
+}

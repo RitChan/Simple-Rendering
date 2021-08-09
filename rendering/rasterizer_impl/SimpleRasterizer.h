@@ -20,6 +20,8 @@ public:
 
     void rasterize(IPrimitive &primitive) override;
 
+    void clear(const Eigen::Vector3f &color) override;
+
 private:
     Eigen::MatrixXf z_buffer_;
 };
