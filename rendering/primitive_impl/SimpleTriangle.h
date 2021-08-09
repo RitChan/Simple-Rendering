@@ -8,7 +8,6 @@
 
 #include "Eigen/Eigen"
 #include "RenderingCore.h"
-#include "shader_impl/SimpleShader.h"
 
 class SimpleTriangle : public IPrimitive {
    public:
