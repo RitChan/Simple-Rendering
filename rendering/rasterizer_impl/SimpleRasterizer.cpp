@@ -21,9 +21,7 @@ void SimpleRasterizer::rasterize(IPrimitive &primitive) {
                 // right handed
                 if (interpolated_z > z_buffer_(row, col)) {
                     z_buffer_(row, col) = interpolated_z;
-                    auto *shader = primitive.get_shader();
-                    set_pixel(row, col, shader->get_color());
-                    delete shader;
+                    set_pixel(row, col, primitive.get_color());
                 }
             }
         }

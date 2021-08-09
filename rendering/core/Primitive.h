@@ -13,7 +13,8 @@ class IPrimitive {
     virtual void set_cursor(float x, float y) = 0;
     [[nodiscard]] virtual float interpolated_z() const = 0;
     [[nodiscard]] virtual bool is_inside() const = 0;
-    [[nodiscard]] virtual IShader *get_shader() const = 0;
+    [[nodiscard]] virtual Eigen::Vector3f get_color() const = 0;
+    virtual ~IPrimitive() = default;
 };
 
 #endif  // RENDERING_PRIMITIVE_H

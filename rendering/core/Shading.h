@@ -10,7 +10,7 @@
 
 class IShader {
    public:
-    virtual Eigen::Vector3f get_color() = 0;
+    virtual Eigen::Vector3f get_color() const = 0;
     virtual ~IShader() = default;
 };
 #endif  // RENDERING_SHADING_H

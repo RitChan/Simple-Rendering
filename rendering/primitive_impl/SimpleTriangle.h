@@ -8,6 +8,7 @@
 
 #include "Eigen/Eigen"
 #include "RenderingCore.h"
+#include "shader_impl/SimpleShader.h"
 
 class SimpleTriangle : public IPrimitive {
    public:
@@ -33,7 +34,9 @@ class SimpleTriangle : public IPrimitive {
         return alpha >= 0 && beta >= 0 && gamma >= 0;
     }
 
-    [[nodiscard]] IShader *get_shader() const override;
+    [[nodiscard]] Eigen::Vector3f get_color() const override {
+        return alpha * color0_ + beta * color1_ + gamma * color2_;
+    }
 
     Eigen::Vector3f v0_;
     Eigen::Vector3f v1_;
