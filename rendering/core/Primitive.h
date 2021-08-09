@@ -3,12 +3,12 @@
 
 #ifndef RENDERING_PRIMITIVE_H
 #define RENDERING_PRIMITIVE_H
+#include "Collider.h"
 #include "Eigen/Eigen"
 #include "Shading.h"
-#include "Collider.h"
 
 class IPrimitive {
-public:
+   public:
     [[nodiscard]] virtual BoundingBox get_bbox() const = 0;
     virtual void set_cursor(float x, float y) = 0;
     [[nodiscard]] virtual float interpolated_z() const = 0;
@@ -16,5 +16,4 @@ public:
     [[nodiscard]] virtual IShader *get_shader() const = 0;
 };
 
-
-#endif //RENDERING_PRIMITIVE_H
+#endif  // RENDERING_PRIMITIVE_H

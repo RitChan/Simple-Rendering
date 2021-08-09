@@ -6,12 +6,14 @@
 
 #include <cstdint>
 #include <vector>
-#include "Primitive.h"
+
 #include "Color.h"
+#include "Primitive.h"
 
 class ARasterizer {
-public:
-    ARasterizer(uint32_t width, uint32_t height) : width_(width), height_(height) {
+   public:
+    ARasterizer(uint32_t width, uint32_t height)
+        : width_(width), height_(height) {
         pixel_data_ = new float[width * height * 3];
     }
 
@@ -19,8 +21,7 @@ public:
 
     [[nodiscard]] Eigen::Vector3f get_pixel(uint32_t row, uint32_t col) const {
         uint32_t base_idx = 3 * (row * width() + col);
-        return {pixel_data_[base_idx + 0],
-                pixel_data_[base_idx + 1],
+        return {pixel_data_[base_idx + 0], pixel_data_[base_idx + 1],
                 pixel_data_[base_idx + 2]};
     }
 
@@ -36,12 +37,12 @@ public:
 
     virtual ~ARasterizer();
 
-protected:
+   protected:
     uint32_t width_;
     uint32_t height_;
 
-private:
+   private:
     float *pixel_data_{nullptr};
 };
 
-#endif //RENDERING_RASTERIZER_H
+#endif  // RENDERING_RASTERIZER_H

@@ -1,13 +1,14 @@
 //
 // Created by Ritee on 2021/8/8.
 //
-#include "Eigen/Eigen"
-#include "rasterizer_impl/SimpleRasterizer.h"
-#include "primitive_impl/SimpleTriangle.h"
-#include "RenderingCore.h"
-#include "opencv2/opencv.hpp"
 #include <vector>
+
+#include "Eigen/Eigen"
+#include "RenderingCore.h"
 #include "SimpleRenderer.h"
+#include "opencv2/opencv.hpp"
+#include "primitive_impl/SimpleTriangle.h"
+#include "rasterizer_impl/SimpleRasterizer.h"
 
 using namespace std;
 using namespace Eigen;
@@ -20,20 +21,11 @@ int main() {
     renderer.rasterizer_ = &rasterizer;
 
     mesh.vertices = vector<Vector3f>{
-            Vector3f(100, 100, 0),
-            Vector3f(300, 100, 0),
-            Vector3f(200, 300, 0)
-    };
+        Vector3f(100, 100, 0), Vector3f(300, 100, 0), Vector3f(200, 300, 0)};
 
-    mesh.colors = vector<Vector3f>{
-            COLOR_RED,
-            COLOR_GREEN,
-            COLOR_BLUE
-    };
+    mesh.colors = vector<Vector3f>{COLOR_RED, COLOR_GREEN, COLOR_BLUE};
 
-    mesh.indices = vector<Vector3i>{
-            {0, 1, 2}
-    };
+    mesh.indices = vector<Vector3i>{{0, 1, 2}};
 
     mesh.world_mat = Matrix4f::Identity();
     renderer.view_ = Matrix4f::Identity();

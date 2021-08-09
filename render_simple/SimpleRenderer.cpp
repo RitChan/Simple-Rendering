@@ -1,9 +1,11 @@
 // Created by Ritee
 // Copyright (c) 2021 Ritee All rights reserved.
 #include "SimpleRenderer.h"
-#include "opencv2/opencv.hpp"
-#include "Eigen/Eigen"
+
 #include <iostream>
+
+#include "Eigen/Eigen"
+#include "opencv2/opencv.hpp"
 
 void SimpleRenderer::render() {
     Eigen::Matrix4f world_to_screen = viewport_ * projection_ * view_;
@@ -14,7 +16,8 @@ void SimpleRenderer::render() {
         triangle.v2_ = transform_point(world_to_screen, triangle.v2_);
         rasterizer_->rasterize(triangle);
     }
-    cv::Mat img_mat = cv::Mat(rasterizer_->height(), rasterizer_->width(), CV_32FC3, rasterizer_->data());
+    cv::Mat img_mat = cv::Mat(rasterizer_->height(), rasterizer_->width(),
+                              CV_32FC3, rasterizer_->data());
     cv::flip(img_mat, img_mat, 0);
     imshow("Triangle", img_mat);
     cv::waitKey();

@@ -8,4 +8,6 @@ add_library(Rendering STATIC
         core/Geometry.cpp
         core/Geometry.h
         RenderingCore.h
-        core/TriangleMesh.h core/Rasterizer.cpp)
+        core/TriangleMesh.h 
+        core/Rasterizer.cpp
+        core/Camera.h)

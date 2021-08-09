@@ -4,12 +4,13 @@
 #ifndef RENDERING_SHADING_H
 #define RENDERING_SHADING_H
 #include <utility>
+
 #include "Color.h"
 #include "Eigen/Eigen"
 
 class IShader {
-public:
+   public:
     virtual Eigen::Vector3f get_color() = 0;
     virtual ~IShader() = default;
 };
-#endif //RENDERING_SHADING_H
+#endif  // RENDERING_SHADING_H

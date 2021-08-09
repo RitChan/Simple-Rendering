@@ -20,6 +20,4 @@ void ARasterizer::clear(const Eigen::Vector3f &color) {
     }
 }
 
-ARasterizer::~ARasterizer() {
-    delete[] pixel_data_;
-}
+ARasterizer::~ARasterizer() { delete[] pixel_data_; }

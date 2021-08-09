@@ -3,14 +3,14 @@
 
 #ifndef RENDERING_TRIANGLEMESH_H
 #define RENDERING_TRIANGLEMESH_H
-#include "Eigen/Eigen"
 #include <vector>
 
+#include "Eigen/Eigen"
+
 struct TriangleMesh {
-public:
+   public:
     uint32_t triangle_count() const {
-        if (indices.empty())
-            return vertices.size() / 3;
+        if (indices.empty()) return vertices.size() / 3;
         return indices.size();
     }
 
@@ -21,4 +21,4 @@ public:
     std::vector<Eigen::Vector3i> indices;
     Eigen::Matrix4f world_mat;
 };
-#endif //RENDERING_TRIANGLEMESH_H
+#endif  // RENDERING_TRIANGLEMESH_H

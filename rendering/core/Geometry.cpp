@@ -53,10 +53,8 @@ Eigen::Matrix4f create_viewport(uint32_t width, uint32_t height) {
     Eigen::Matrix4f result;
     float half_width = (float)width / 2;
     float half_height = (float)height / 2;
-    result << half_width, 0, 0, half_width,
-        0, half_height, 0, half_height,
-        0, 0, 1, 0,
-        0, 0, 0, 1;
+    result << half_width, 0, 0, half_width, 0, half_height, 0, half_height, 0,
+        0, 1, 0, 0, 0, 0, 1;
     return result;
 }
 
@@ -69,4 +67,5 @@ Eigen::Matrix4f create_model_matrix(const Eigen::Vector3f &position,
     Eigen::Matrix4f result;
     result << x.x(), y.x(), z.x(), position.x(), x.y(), y.y(), z.y(),
         position.y(), x.z(), y.z(), z.z(), position.z(), 0, 0, 0, 1;
+    return result;
 }

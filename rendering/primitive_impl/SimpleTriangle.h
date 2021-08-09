@@ -4,12 +4,13 @@
 #ifndef RENDERING_SIMPLETRIANGLE_H
 #define RENDERING_SIMPLETRIANGLE_H
 
-#include "RenderingCore.h"
-#include "Eigen/Eigen"
 #include <cmath>
 
+#include "Eigen/Eigen"
+#include "RenderingCore.h"
+
 class SimpleTriangle : public IPrimitive {
-public:
+   public:
     [[nodiscard]] BoundingBox get_bbox() const override {
         BoundingBox result;
         result.left_ = std::fmin(v2_.x(), std::fmin(v0_.x(), v1_.x()));
@@ -41,7 +42,7 @@ public:
     Eigen::Vector3f color1_;
     Eigen::Vector3f color2_;
 
-private:
+   private:
     void update_barycentric();
 
     Eigen::Vector2f cursor_;
@@ -50,4 +51,4 @@ private:
     float gamma;
 };
 
-#endif //RENDERING_SIMPLETRIANGLE_H
+#endif  // RENDERING_SIMPLETRIANGLE_H
