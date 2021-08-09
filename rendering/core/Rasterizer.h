@@ -12,22 +12,23 @@
 class ARasterizer {
 public:
     ARasterizer(uint32_t width, uint32_t height) : width_(width), height_(height) {
-        pixels_ = std::vector<Eigen::Vector3f>(width * height);
+        pixel_data_ = new float[width * height * 3];
     }
 
     void set_pixel(uint32_t row, uint32_t col, Eigen::Vector3f color);
 
-    [[nodiscard]] const Eigen::Vector3f &pixel(uint32_t row, uint32_t col) const {
-        return pixels_[row * width() + col];
+    [[nodiscard]] Eigen::Vector3f get_pixel(uint32_t row, uint32_t col) const {
+        uint32_t base_idx = 3 * (row * width() + col);
+        return {pixel_data_[base_idx + 0],
+                pixel_data_[base_idx + 1],
+                pixel_data_[base_idx + 2]};
     }
 
     [[nodiscard]] uint32_t width() const { return width_; }
 
     [[nodiscard]] uint32_t height() const { return height_; }
 
-    [[nodiscard]] const std::vector<Eigen::Vector3f> &pixels() const { return pixels_; }
-
-    [[nodiscard]] float *data();
+    [[nodiscard]] float *data() { return pixel_data_; }
 
     virtual void clear(const Eigen::Vector3f &color);
 
@@ -40,8 +41,6 @@ protected:
     uint32_t height_;
 
 private:
-    bool synced_{false};
-    std::vector<Eigen::Vector3f> pixels_;
     float *pixel_data_{nullptr};
 };
 
