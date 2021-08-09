@@ -4,7 +4,6 @@
 #include "SimpleTriangle.h"
 
 #include "Eigen/Eigen"
-#include "shader_impl/SimpleShader.h"
 
 void SimpleTriangle::update_barycentric() {
     Eigen::Matrix3f m;
