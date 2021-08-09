@@ -6,8 +6,8 @@
 
 #include "Eigen/Eigen"
 
-Eigen::Matrix4f create_view_matrix(Eigen::Vector3f camera_position, Eigen::Vector3f camera_forward,
-                                   Eigen::Vector3f camera_up);
+Eigen::Matrix4f create_view_matrix(const Eigen::Vector3f &camera_position, const Eigen::Vector3f &camera_forward,
+                                   const Eigen::Vector3f &camera_up);
 
 Eigen::Matrix4f create_perspective(float fov_radius, float aspect_ratio, float near_distance, float far_distance);
 
