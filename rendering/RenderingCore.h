@@ -11,4 +11,7 @@
 #include "core/Rasterizer.h"
 #include "core/Shading.h"
 #include "core/TriangleMesh.h"
+#include "core/VertexShader.h"
+#include "core/Controller.h"
+#include "core/Event.h"
 #endif  // RENDERING_RENDERINGCORE_H
