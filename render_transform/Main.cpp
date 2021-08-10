@@ -85,7 +85,7 @@ int main() {
 
     mesh.world_mat = create_model_matrix({0, 0, 0}, {1, 1, 1}, {0, 1, -1});
     Camera camera{};
-    camera.position = Eigen::Vector3f{0, 0, 4};
+    camera.position = Eigen::Vector3f{0, 0, 8};
     camera.forward = Eigen::Vector3f{0, 0, -1};
     camera.up = Eigen::Vector3f{0, 1, 0};
     renderer.camera_ = &camera;

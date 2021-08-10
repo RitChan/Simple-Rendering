@@ -2,6 +2,9 @@
 // Copyright (c) 2021 Ritee All rights reserved.
 #include "TransformRenderer.h"
 
+#include <ctime>
+#include <iostream>
+
 #include "Eigen/Eigen"
 #include "opencv2/opencv.hpp"
 
@@ -26,7 +29,8 @@ void TransformRenderer::render() {
     cv::Mat img_mat = cv::Mat(rasterizer_->height(), rasterizer_->width(),
                               CV_32FC3, rasterizer_->data());
     cv::flip(img_mat, img_mat, 0);
-    while (key != 'q') {
+    std::clock_t last_frame = std::clock();
+    while (key != 27 /*ESC*/) {
         rasterizer_->clear({0, 0, 0});
         Eigen::Matrix4f world_2_screen =
             viewport_ * projection_ * camera_->to_view();
@@ -39,7 +43,10 @@ void TransformRenderer::render() {
         }
         cv::imshow("Render Transform", img_mat);
         key = cv::waitKey(1);
-        printf("Tick....\n");
+        std::clock_t now = std::clock();
+        float last_frame_to_now = 1000 * (now - last_frame) / CLOCKS_PER_SEC;
+        std::cout << "FPS: " << 1000 / last_frame_to_now << std::endl;
+        last_frame = now;
         switch (key) {
             case 'd':
                 camera_->move({0.5f, 0, 0});
