@@ -13,12 +13,12 @@ int main() {
     uint32_t height = 400;
 
     SimpleTriVshader vshader{};
-    // A triangle
-    vshader.vertices_ =
-        std::vector<Eigen::Vector3f>{{-1, -1, 0}, {1, -1, 0}, {0, 1, 0}};
-    vshader.colors_ =
-        std::vector<Eigen::Vector3f>{COLOR_RED, COLOR_BLUE, COLOR_GREEN};
-    vshader.indices_ = std::vector<Eigen::Vector3i>{{0, 1, 2}};
+    // Two triangles
+    vshader.vertices_ = std::vector<Eigen::Vector3f>{
+        {-1, -1, 0}, {1, -1, 0}, {1, 1, 0}, {-1, 1, 0}};
+    vshader.colors_ = std::vector<Eigen::Vector3f>{COLOR_RED, COLOR_BLUE,
+                                                   COLOR_GREEN, COLOR_BLUE};
+    vshader.indices_ = std::vector<Eigen::Vector3i>{{0, 1, 2}, {0, 2, 3}};
 
     Camera cam{};
     cam.position = Eigen::Vector3f{0, 0, 5};

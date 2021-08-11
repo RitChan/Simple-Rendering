@@ -40,6 +40,7 @@ void RenderController::loop_forever(const std::string &win_name) {
                 vshader->next();
             }
         }
+        cv::cvtColor(img_mat, img_mat, cv::COLOR_RGB2BGR);
         cv::imshow(win_name, img_mat);
         if (cv::waitKey(1) == ESC) break;
     }
