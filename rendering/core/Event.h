@@ -8,8 +8,8 @@
 
 class ILoopEvent {
    public:
-    void start();
-    void update();
+    virtual void start() {}
+    virtual void update() {}
 };
 
 class EventPool {

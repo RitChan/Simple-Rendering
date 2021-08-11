@@ -14,4 +14,5 @@
 #include "core/VertexShader.h"
 #include "core/Controller.h"
 #include "core/Event.h"
+#include "core/Factory.h"
 #endif  // RENDERING_RENDERINGCORE_H
