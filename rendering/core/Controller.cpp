@@ -9,7 +9,7 @@
 
 void RenderController::render_iamge() {
     for (auto vshader : vshaders_) {
-        vshader->reset_index();
+        vshader->reset();
         while (!vshader->exhausted()) {
             rasterizer_->rasterize(vshader->current_primitive());
             vshader->next();
@@ -32,14 +32,14 @@ void RenderController::loop_forever(const std::string &win_name) {
     cv::flip(img_mat, img_mat, 0);
     while (true) {
         rasterizer_->clear(COLOR_BLACK);
-        EventPool::instance().update_all();
         for (auto vshader : vshaders_) {
-            vshader->reset_index();
+            vshader->reset();
             while (!vshader->exhausted()) {
                 rasterizer_->rasterize(vshader->current_primitive());
                 vshader->next();
             }
         }
+        EventPool::instance().update_all();
         cv::cvtColor(img_mat, img_mat, cv::COLOR_RGB2BGR);
         cv::imshow(win_name, img_mat);
         if (cv::waitKey(1) == ESC) break;

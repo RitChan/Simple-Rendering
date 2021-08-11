@@ -1,15 +1,12 @@
 // Created by Ritee
 // Copyright (c) 2021 Ritee All rights reserved.
 
-#ifndef RENDERING_SIMPLETRIANGLE_H
-#define RENDERING_SIMPLETRIANGLE_H
+#ifndef RENDERING_PRIMITIVE_IMPL_TEXTURE_TRIANGLE_H
+#define RENDERING_PRIMITIVE_IMPL_TEXTURE_TRIANGLE_H
+#include "core/Primitive.h"
+#include "core/Texture.h"
 
-#include <cmath>
-
-#include "Eigen/Eigen"
-#include "RenderingCore.h"
-
-class SimpleTriangle : public IPrimitive {
+class TextureTriangle : public IPrimitive {
    public:
     [[nodiscard]] BoundingBox get_bbox() const override {
         BoundingBox result;
@@ -33,16 +30,15 @@ class SimpleTriangle : public IPrimitive {
         return alpha >= 0 && beta >= 0 && gamma >= 0;
     }
 
-    [[nodiscard]] Eigen::Vector3f get_color() const override {
-        return alpha * color0_ + beta * color1_ + gamma * color2_;
-    }
+    [[nodiscard]] Eigen::Vector3f get_color() const override;
 
     Eigen::Vector3f v0_;
     Eigen::Vector3f v1_;
     Eigen::Vector3f v2_;
-    Eigen::Vector3f color0_;
-    Eigen::Vector3f color1_;
-    Eigen::Vector3f color2_;
+    Eigen::Vector2f uv0_;
+    Eigen::Vector2f uv1_;
+    Eigen::Vector2f uv2_;
+    ITexture *texture_;
 
    protected:
     void update_barycentric();
@@ -53,4 +49,4 @@ class SimpleTriangle : public IPrimitive {
     float gamma;
 };
 
-#endif  // RENDERING_SIMPLETRIANGLE_H
+#endif

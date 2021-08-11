@@ -21,6 +21,8 @@ public:
     void show_image(const std::string &win_name);
 
     virtual void loop_forever(const std::string &win_name);
+
+    virtual ~RenderController() = default;
 };
 
 

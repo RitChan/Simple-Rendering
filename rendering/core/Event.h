@@ -10,6 +10,7 @@ class ILoopEvent {
    public:
     virtual void start() {}
     virtual void update() {}
+    virtual ~ILoopEvent() = default;
 };
 
 class EventPool {

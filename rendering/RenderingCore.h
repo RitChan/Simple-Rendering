@@ -15,4 +15,5 @@
 #include "core/Controller.h"
 #include "core/Event.h"
 #include "core/Factory.h"
+#include "core/Texture.h"
 #endif  // RENDERING_RENDERINGCORE_H

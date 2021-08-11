@@ -40,6 +40,7 @@ int main() {
     controller.rasterizer_ = &rasterizer;
     controller.vshaders_.push_back(&vshader);
 
-    controller.loop_forever("Demo VShader");
+    controller.render_iamge();
+    controller.show_image("Demo VShader");
     return 0;
 }
