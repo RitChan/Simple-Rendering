@@ -64,6 +64,7 @@ Eigen::Matrix4f create_model_matrix(const Eigen::Vector3f &position,
     Eigen::Vector3f z = forward.normalized();
     Eigen::Vector3f y = up.normalized();
     Eigen::Vector3f x = y.cross(z);
+    y = z.cross(x);
     Eigen::Matrix4f result;
     result << x.x(), y.x(), z.x(), position.x(), x.y(), y.y(), z.y(),
         position.y(), x.z(), y.z(), z.z(), position.z(), 0, 0, 0, 1;
