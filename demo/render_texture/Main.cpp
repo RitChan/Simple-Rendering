@@ -14,7 +14,7 @@
 
 class RotationEvent : public ILoopEvent {
 public:
-    TextureTriVshader *tex_shader{nullptr};
+    TextureTriVshader *roution_obj{nullptr};
     float radius_per_second{0};
 
     virtual void start() {
@@ -27,7 +27,7 @@ public:
         std::clock_t now = std::clock();
         long frame_interval_ms = 1000 * (now - last_frame) / CLOCKS_PER_SEC;
         float rotation_radius = frame_interval_ms * radius_per_second / 1000;
-        tex_shader->model_ = create_rotation_y(rotation_radius) * tex_shader->model_;
+        roution_obj->model_ = create_rotation_y(rotation_radius) * roution_obj->model_;
         last_frame = now;
     }
 
@@ -69,7 +69,7 @@ int main() {
     shader.viewport_ = &viewport;
 
     RotationEvent event;
-    event.tex_shader = &shader;
+    event.roution_obj = &shader;
     event.radius_per_second = M_PI_4;
     EventPool::instance().add_event(event);
 
