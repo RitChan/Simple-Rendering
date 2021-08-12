@@ -58,6 +58,14 @@ Eigen::Matrix4f create_viewport(uint32_t width, uint32_t height) {
     return result;
 }
 
+Eigen::Matrix4f create_rotation_y(float radius) {
+    float cos = std::cos(radius);
+    float sin = std::sin(radius);
+    Eigen::Matrix4f result;
+    result << cos, 0, sin, 0, 0, 1, 0, 0, -sin, 0, cos, 0, 0, 0, 0, 1;
+    return result;
+}
+
 Eigen::Matrix4f create_model_matrix(const Eigen::Vector3f &position,
                                     const Eigen::Vector3f &forward,
                                     const Eigen::Vector3f &up) {

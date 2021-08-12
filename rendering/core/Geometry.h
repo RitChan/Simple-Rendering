@@ -6,6 +6,8 @@
 
 #include "Eigen/Eigen"
 
+Eigen::Matrix4f create_rotation_y(float radius);
+
 Eigen::Matrix4f create_model_matrix(const Eigen::Vector3f &position,
                                     const Eigen::Vector3f &forward,
                                     const Eigen::Vector3f &up);
