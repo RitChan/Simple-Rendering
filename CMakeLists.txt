@@ -10,7 +10,4 @@ include_directories(rendering ${OpenCV_INCLUDE_DIRS})
 link_libraries(${OpenCV_LIBS})
 
 add_subdirectory(rendering)
-add_subdirectory(render_simple)
-add_subdirectory(render_transform)
-add_subdirectory(render_vshader)
-add_subdirectory(render_texture)
+add_subdirectory(demo)
