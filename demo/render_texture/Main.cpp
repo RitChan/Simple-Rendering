@@ -1,19 +1,19 @@
 // Created by Ritee
 // Copyright (c) 2021 Ritee All rights reserved.
 
+#include <ctime>
 #include <string>
 #include <vector>
-#include <ctime>
 
 #include "Eigen/Eigen"
 #include "RenderingCore.h"
 #include "opencv2/opencv.hpp"
 #include "rasterizer_impl/SimpleRasterizer.h"
-#include "texture_impl/SimpleTexture.h"
 #include "shader_impl/TextureTriShader.h"
+#include "texture_impl/SimpleTexture.h"
 
 class RotationEvent : public ILoopEvent {
-public:
+   public:
     TextureTriVshader *rotaion_obj{nullptr};
     float radius_per_second{0};
 
@@ -27,13 +27,13 @@ public:
         std::clock_t now = std::clock();
         long frame_interval_ms = 1000 * (now - last_frame) / CLOCKS_PER_SEC;
         float rotation_radius = frame_interval_ms * radius_per_second / 1000;
-        rotaion_obj->model_ = create_rotation_y(rotation_radius) * rotaion_obj->model_;
+        rotaion_obj->model_ =
+            create_rotation_y(rotation_radius) * rotaion_obj->model_;
         last_frame = now;
     }
 
-private:
+   private:
     std::clock_t last_frame;
-
 };
 
 int main() {
