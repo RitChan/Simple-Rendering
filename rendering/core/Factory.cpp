@@ -5,11 +5,11 @@
 #include <list>
 
 #include "core/Controller.h"
-#include "core/VertexShader.h"
+#include "core/Shader.h"
 
 RenderController create_controller(ARasterizer &rasterizer) {
     RenderController result{};
     result.rasterizer_ = &rasterizer;
-    result.vshaders_ = std::list<IShader *>{};
+    result.shaders_ = std::list<IShader *>{};
     return result;
 }

@@ -4,7 +4,7 @@
 #ifndef RENDERING_CORE_CONTROLLER_H
 #define RENDERING_CORE_CONTROLLER_H
 
-#include "core/VertexShader.h"
+#include "core/Shader.h"
 #include "core/Rasterizer.h"
 
 #include <list>
@@ -13,7 +13,7 @@
 
 class RenderController {
 public:
-    std::list<IShader *> vshaders_{};
+    std::list<IShader *> shaders_{};
     ARasterizer *rasterizer_{nullptr};
 
     void render_iamge();

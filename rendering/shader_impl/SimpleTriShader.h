@@ -1,17 +1,19 @@
 // Created by Ritee
 // Copyright (c) 2021 Ritee All rights reserved.
 
-#ifndef RENDERING_SHADER_IMPL_TEXTURE_TRI_VSHADER_H
-#define RENDERING_SHADER_IMPL_TEXTURE_TRI_VSHADER_H
-
+#ifndef RENDERING_VSHADER_IMPL_H
+#define RENDERING_VSHADER_IMPL_H
 #include <vector>
 
-#include "core/VertexShader.h"
-#include "core/Texture.h"
-#include "primitive_impl/TextureTriangle.h"
+#include "Eigen/Eigen"
+#include "core/Camera.h"
+#include "core/Shader.h"
+#include "primitive_impl/SimpleTriangle.h"
 
-class TextureTriVshader : public IShader {
+class SimpleTriShader : public IShader {
    public:
+    uint32_t tri_count() const { return indices_.size(); }
+
     IPrimitive &current_primitive() override;
 
     bool exhausted() const override { return index_ >= tri_count(); }
@@ -19,26 +21,23 @@ class TextureTriVshader : public IShader {
     void next() override { index_++; }
 
     void reset() override {
-        model_to_screen_ = (*viewport_) * (*projection_) * (*view_) * model_;
+        model_2_screen_ = (*viewport_) * (*projection_) * (*view_) * model_;
         index_ = 0;
     }
 
-    uint32_t tri_count() const { return indices_.size(); }
-
     std::vector<Eigen::Vector3f> vertices_;
     std::vector<Eigen::Vector3f> colors_;
-    std::vector<Eigen::Vector2f> uv_;
     std::vector<Eigen::Vector3i> indices_;
     Eigen::Matrix4f model_;
     Eigen::Matrix4f *view_{nullptr};
     Eigen::Matrix4f *projection_{nullptr};
     Eigen::Matrix4f *viewport_{nullptr};
-    ITexture *texture_;
 
    private:
-    uint32_t index_;
-    Eigen::Matrix4f model_to_screen_;
-    TextureTriangle tex_tri_;
+    uint32_t index_ = 0;
+    SimpleTriangle tri_{};
+    Eigen::Matrix4f model_2_screen_;
+    
 };
 
-#endif
+#endif  // RENDERING_VSHADER_IMPL_H

@@ -10,7 +10,7 @@
 #include "core/Primitive.h"
 #include "core/Rasterizer.h"
 #include "core/TriangleMesh.h"
-#include "core/VertexShader.h"
+#include "core/Shader.h"
 #include "core/Controller.h"
 #include "core/Event.h"
 #include "core/Factory.h"

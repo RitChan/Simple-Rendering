@@ -1,11 +1,11 @@
 // Created by Ritee
 // Copyright (c) 2021 Ritee All rights reserved.
 
-#include "shader_impl/SimpleTriVshader.h"
+#include "shader_impl/SimpleTriShader.h"
 #include "core/Geometry.h"
 #include "Eigen/Eigen"
 
-IPrimitive &SimpleTriVshader::current_primitive() {
+IPrimitive &SimpleTriShader::current_primitive() {
     Eigen::Vector3i &v_idx = indices_.at(index_);
     tri_.v0_ = transform_point(model_2_screen_, vertices_.at(v_idx.x()));
     tri_.v1_ = transform_point(model_2_screen_, vertices_.at(v_idx.y()));

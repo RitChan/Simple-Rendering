@@ -1,7 +1,7 @@
 // Created by Ritee
 // Copyright (c) 2021 Ritee All rights reserved.
 
-#include "shader_impl/TextureTriVshader.h"
+#include "shader_impl/TextureTriShader.h"
 #include "Eigen/Eigen"
 #include "core/Geometry.h"
 IPrimitive &TextureTriVshader::current_primitive() {

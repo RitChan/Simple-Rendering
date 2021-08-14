@@ -10,7 +10,7 @@
 #include "opencv2/opencv.hpp"
 #include "rasterizer_impl/SimpleRasterizer.h"
 #include "texture_impl/SimpleTexture.h"
-#include "shader_impl/TextureTriVshader.h"
+#include "shader_impl/TextureTriShader.h"
 
 class RotationEvent : public ILoopEvent {
 public:
@@ -80,7 +80,7 @@ int main() {
     SimpleRasterizer rasterizer = SimpleRasterizer(WIDTH, HEIGHT);
     RenderController controller{};
     controller.rasterizer_ = &rasterizer;
-    controller.vshaders_.push_back(&shader);
+    controller.shaders_.push_back(&shader);
 
     controller.loop_forever("Kamisato Ayakas");
     return 0;
