@@ -80,7 +80,7 @@ int main() {
     SimpleRasterizer rasterizer = SimpleRasterizer(WIDTH, HEIGHT);
     RenderController controller{};
     controller.rasterizer_ = &rasterizer;
-    controller.shaders_.push_back(&shader);
+    controller.shaders_ptr_.push_back(&shader);
 
     controller.loop_forever("Kamisato Ayakas");
     return 0;

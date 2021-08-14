@@ -10,6 +10,6 @@
 RenderController create_controller(ARasterizer &rasterizer) {
     RenderController result{};
     result.rasterizer_ = &rasterizer;
-    result.shaders_ = std::list<IShader *>{};
+    result.shaders_ptr_ = std::list<IShader *>{};
     return result;
 }

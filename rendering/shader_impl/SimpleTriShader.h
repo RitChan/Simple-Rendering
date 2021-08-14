@@ -1,14 +1,23 @@
 // Created by Ritee
 // Copyright (c) 2021 Ritee All rights reserved.
 
-#ifndef RENDERING_VSHADER_IMPL_H
-#define RENDERING_VSHADER_IMPL_H
+#ifndef RENDERING_SHADER_IMPL_SIMPLETRISHADER_H
+#define RENDERING_SHADER_IMPL_SIMPLETRISHADER_H
 #include <vector>
 
 #include "Eigen/Eigen"
-#include "core/Camera.h"
+#include "core/Primitive.h"
 #include "core/Shader.h"
-#include "primitive_impl/SimpleTriangle.h"
+
+class ISimpleTriShaderProco : public IPrimitive {
+   public:
+    virtual void set_v0(Eigen::Vector3f v) = 0;
+    virtual void set_v1(Eigen::Vector3f v) = 0;
+    virtual void set_v2(Eigen::Vector3f v) = 0;
+    virtual void set_color0(Eigen::Vector3f color) = 0;
+    virtual void set_color1(Eigen::Vector3f color) = 0;
+    virtual void set_color2(Eigen::Vector3f color) = 0;
+};
 
 class SimpleTriShader : public IShader {
    public:
@@ -32,12 +41,11 @@ class SimpleTriShader : public IShader {
     Eigen::Matrix4f *view_{nullptr};
     Eigen::Matrix4f *projection_{nullptr};
     Eigen::Matrix4f *viewport_{nullptr};
+    ISimpleTriShaderProco *primitve_;
 
    private:
     uint32_t index_ = 0;
-    SimpleTriangle tri_{};
     Eigen::Matrix4f model_2_screen_;
-    
 };
 
-#endif  // RENDERING_VSHADER_IMPL_H
+#endif  // RENDERING_SHADER_IMPL_SIMPLETRISHADER_H

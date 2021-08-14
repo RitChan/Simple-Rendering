@@ -8,8 +8,9 @@
 
 #include "Eigen/Eigen"
 #include "RenderingCore.h"
+#include "shader_impl/SimpleTriShader.h"
 
-class SimpleTriangle : public IPrimitive {
+class SimpleTriangle : public ISimpleTriShaderProco {
    public:
     [[nodiscard]] BoundingBox get_bbox() const override {
         BoundingBox result;
@@ -36,6 +37,13 @@ class SimpleTriangle : public IPrimitive {
     [[nodiscard]] Eigen::Vector3f get_color() const override {
         return alpha * color0_ + beta * color1_ + gamma * color2_;
     }
+
+    void set_v0(Eigen::Vector3f v) override { v0_ = std::move(v); }
+    void set_v1(Eigen::Vector3f v) override { v1_ = std::move(v); }
+    void set_v2(Eigen::Vector3f v) override { v2_ = std::move(v); }
+    void set_color0(Eigen::Vector3f color) override { color0_ = std::move(color); }
+    void set_color1(Eigen::Vector3f color) override { color1_ = std::move(color); }
+    void set_color2(Eigen::Vector3f color) override { color2_ = std::move(color); }
 
     Eigen::Vector3f v0_;
     Eigen::Vector3f v1_;

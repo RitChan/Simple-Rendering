@@ -8,7 +8,7 @@
 #define ESC 27
 
 void RenderController::render_iamge() {
-    for (auto vshader : shaders_) {
+    for (auto vshader : shaders_ptr_) {
         vshader->reset();
         while (!vshader->exhausted()) {
             rasterizer_->rasterize(vshader->current_primitive());
@@ -32,7 +32,7 @@ void RenderController::loop_forever(const std::string &win_name) {
     cv::flip(img_mat, img_mat, 0);
     while (true) {
         rasterizer_->clear(COLOR_BLACK);
-        for (auto vshader : shaders_) {
+        for (auto vshader : shaders_ptr_) {
             vshader->reset();
             while (!vshader->exhausted()) {
                 rasterizer_->rasterize(vshader->current_primitive());

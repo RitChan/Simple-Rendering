@@ -7,6 +7,7 @@
 #include "RenderingCore.h"
 #include "rasterizer_impl/SimpleRasterizer.h"
 #include "shader_impl/SimpleTriShader.h"
+#include "primitive_impl/SimpleTriangle.h"
 
 int main() {
     uint32_t width = 600;
@@ -19,6 +20,9 @@ int main() {
     shader.colors_ = std::vector<Eigen::Vector3f>{COLOR_RED, COLOR_BLUE,
                                                    COLOR_GREEN, COLOR_BLUE};
     shader.indices_ = std::vector<Eigen::Vector3i>{{0, 1, 2}, {0, 2, 3}};
+
+    SimpleTriangle triangle{};
+    shader.primitve_ = &triangle;
 
     Camera cam{};
     cam.position = Eigen::Vector3f{0, 0, 5};
@@ -38,7 +42,7 @@ int main() {
     SimpleRasterizer rasterizer{width, height};
     RenderController controller{};
     controller.rasterizer_ = &rasterizer;
-    controller.shaders_.push_back(&shader);
+    controller.shaders_ptr_.push_back(&shader);
 
     controller.render_iamge();
     controller.show_image("Demo VShader");

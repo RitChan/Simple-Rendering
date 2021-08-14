@@ -1,4 +1,4 @@
 add_subdirectory(render_simple)
 add_subdirectory(render_transform)
-add_subdirectory(render_vshader)
+add_subdirectory(render_shader)
 add_subdirectory(render_texture)
