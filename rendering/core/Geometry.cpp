@@ -21,6 +21,7 @@ Eigen::Matrix4f create_view_matrix(const Eigen::Vector3f &camera_position,
     Eigen::Vector3f cam_z = camera_forward.normalized();
     Eigen::Vector3f cam_y = camera_up.normalized();
     Eigen::Vector3f cam_x = cam_y.cross(cam_z);
+    cam_y = cam_z.cross(cam_x);
     result_inv << cam_x.x(), cam_y.x(), cam_z.x(), camera_position.x(),
         cam_x.y(), cam_y.y(), cam_z.y(), camera_position.y(), cam_x.z(),
         cam_y.z(), cam_z.z(), camera_position.z(), 0, 0, 0, 1;
