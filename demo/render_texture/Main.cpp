@@ -10,7 +10,7 @@
 #include "opencv2/opencv.hpp"
 #include "rasterizer_impl/SimpleRasterizer.h"
 #include "texture_impl/SimpleTexture.h"
-#include "vshader_impl/TextureTriVshader.h"
+#include "shader_impl/TextureTriVshader.h"
 
 class RotationEvent : public ILoopEvent {
 public:

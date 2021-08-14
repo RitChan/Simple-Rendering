@@ -10,7 +10,7 @@
 #include "core/VertexShader.h"
 #include "primitive_impl/SimpleTriangle.h"
 
-class SimpleTriVshader : public IVertexShader {
+class SimpleTriVshader : public IShader {
    public:
     uint32_t tri_count() const { return indices_.size(); }
 

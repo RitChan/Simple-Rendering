@@ -6,7 +6,7 @@
 #include "Eigen/Eigen"
 #include "RenderingCore.h"
 #include "rasterizer_impl/SimpleRasterizer.h"
-#include "vshader_impl/SimpleTriVshader.h"
+#include "shader_impl/SimpleTriVshader.h"
 
 int main() {
     uint32_t width = 600;

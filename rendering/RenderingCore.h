@@ -9,7 +9,6 @@
 #include "core/Geometry.h"
 #include "core/Primitive.h"
 #include "core/Rasterizer.h"
-#include "core/Shading.h"
 #include "core/TriangleMesh.h"
 #include "core/VertexShader.h"
 #include "core/Controller.h"

@@ -5,7 +5,6 @@
 #define RENDERING_PRIMITIVE_H
 #include "Collider.h"
 #include "Eigen/Eigen"
-#include "Shading.h"
 
 class IPrimitive {
    public:

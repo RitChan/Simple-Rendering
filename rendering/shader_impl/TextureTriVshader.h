@@ -1,8 +1,8 @@
 // Created by Ritee
 // Copyright (c) 2021 Ritee All rights reserved.
 
-#ifndef RENDERING_VSHADER_IMPL_TEXTURE_TRI_VSHADER_H
-#define RENDERING_VSHADER_IMPL_TEXTURE_TRI_VSHADER_H
+#ifndef RENDERING_SHADER_IMPL_TEXTURE_TRI_VSHADER_H
+#define RENDERING_SHADER_IMPL_TEXTURE_TRI_VSHADER_H
 
 #include <vector>
 
@@ -10,7 +10,7 @@
 #include "core/Texture.h"
 #include "primitive_impl/TextureTriangle.h"
 
-class TextureTriVshader : public IVertexShader {
+class TextureTriVshader : public IShader {
    public:
     IPrimitive &current_primitive() override;
 

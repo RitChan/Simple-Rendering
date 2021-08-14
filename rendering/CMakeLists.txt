@@ -8,6 +8,6 @@ add_library(Rendering STATIC
         primitive_impl/SimpleTriangle.cpp
         primitive_impl/TextureTriangle.cpp
         rasterizer_impl/SimpleRasterizer.cpp
-        vshader_impl/SimpleTriVshader.cpp
-        vshader_impl/TextureTriVshader.cpp
+        shader_impl/SimpleTriVshader.cpp
+        shader_impl/TextureTriVshader.cpp
         texture_impl/SimpleTexture.cpp)

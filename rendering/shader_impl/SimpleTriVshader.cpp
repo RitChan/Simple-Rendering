@@ -1,7 +1,7 @@
 // Created by Ritee
 // Copyright (c) 2021 Ritee All rights reserved.
 
-#include "vshader_impl/SimpleTriVshader.h"
+#include "shader_impl/SimpleTriVshader.h"
 #include "core/Geometry.h"
 #include "Eigen/Eigen"
 
