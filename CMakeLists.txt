@@ -11,3 +11,4 @@ link_libraries(${OpenCV_LIBS})
 
 add_subdirectory(rendering)
 add_subdirectory(demo)
+add_subdirectory(ray_tracing)
