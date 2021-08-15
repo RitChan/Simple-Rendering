@@ -13,7 +13,7 @@
 
 class RenderController {
 public:
-    std::list<IShader *> shaders_ptr_{};
+    std::list<IShader *> shader_ptrs_{};
     ARasterizer *rasterizer_{nullptr};
 
     void render_iamge();

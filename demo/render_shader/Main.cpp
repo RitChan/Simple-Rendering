@@ -42,7 +42,7 @@ int main() {
     SimpleRasterizer rasterizer{width, height};
     RenderController controller{};
     controller.rasterizer_ = &rasterizer;
-    controller.shaders_ptr_.push_back(&shader);
+    controller.shader_ptrs_.push_back(&shader);
 
     controller.render_iamge();
     controller.show_image("Demo VShader");
