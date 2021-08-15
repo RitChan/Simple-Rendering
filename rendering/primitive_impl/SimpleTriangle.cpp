@@ -3,7 +3,7 @@
 
 #include "SimpleTriangle.h"
 
-#include "Eigen/Eigen"
+#include <eigen3/Eigen/Eigen>
 
 void SimpleTriangle::update_barycentric() {
     Eigen::Matrix3f m;

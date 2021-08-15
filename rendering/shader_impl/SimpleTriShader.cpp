@@ -3,7 +3,8 @@
 
 #include "shader_impl/SimpleTriShader.h"
 
-#include "Eigen/Eigen"
+#include <eigen3/Eigen/Eigen>
+
 #include "core/Geometry.h"
 
 IPrimitive &SimpleTriShader::current_primitive() {

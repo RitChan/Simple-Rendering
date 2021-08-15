@@ -4,7 +4,7 @@
 #ifndef RENDERING_GEOMETRY_H
 #define RENDERING_GEOMETRY_H
 
-#include "Eigen/Eigen"
+#include <eigen3/Eigen/Eigen>
 
 Eigen::Matrix4f create_rotation_y(float radius);
 

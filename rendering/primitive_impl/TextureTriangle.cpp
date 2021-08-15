@@ -2,11 +2,12 @@
 // Copyright (c) 2021 Ritee All rights reserved.
 
 #include "primitive_impl/TextureTriangle.h"
-#include "Eigen/Eigen"
+
+#include <eigen3/Eigen/Eigen>
 
 [[nodiscard]] Eigen::Vector3f TextureTriangle::get_color() const {
     Eigen::Vector2f interpolated_uv = alpha * uv0_ + beta * uv1_ + gamma * uv2_;
-    return texture_->sample(interpolated_uv.x(), interpolated_uv.y()); 
+    return texture_->sample(interpolated_uv.x(), interpolated_uv.y());
 }
 
 void TextureTriangle::update_barycentric() {

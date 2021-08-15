@@ -2,12 +2,12 @@
 // Copyright (c) 2021 Ritee All rights reserved.
 
 #include <ctime>
+#include <eigen3/Eigen/Eigen>
+#include <opencv2/opencv.hpp>
 #include <string>
 #include <vector>
 
-#include "Eigen/Eigen"
 #include "RenderingCore.h"
-#include "opencv2/opencv.hpp"
 #include "rasterizer_impl/SimpleRasterizer.h"
 #include "shader_impl/TextureTriShader.h"
 #include "texture_impl/SimpleTexture.h"

@@ -3,7 +3,7 @@
 
 #ifndef RENDERING_CORE_CAMERA_H
 #define RENDERING_CORE_CAMERA_H
-#include "Eigen/Eigen"
+#include <eigen3/Eigen/Eigen>
 #include "core/Geometry.h"
 
 class Camera {

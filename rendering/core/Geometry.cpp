@@ -3,8 +3,9 @@
 
 #include "Geometry.h"
 
-#include "Eigen/Eigen"
-#include "Eigen/Geometry"
+#include <eigen3/Eigen/Eigen>
+
+#include "core/Geometry.h"
 
 Eigen::Vector3f transform_point(const Eigen::Matrix4f &transform,
                                 const Eigen::Vector3f &point) {

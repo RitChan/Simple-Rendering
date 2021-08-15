@@ -4,9 +4,10 @@
 #ifndef RENDERING_SIMPLERENDERER_H
 #define RENDERING_SIMPLERENDERER_H
 
-#include "Eigen/Eigen"
+#include <eigen3/Eigen/Eigen>
+#include <opencv2/opencv.hpp>
+
 #include "RenderingCore.h"
-#include "opencv2/opencv.hpp"
 #include "primitive_impl/SimpleTriangle.h"
 
 class SimpleRenderer {

@@ -1,13 +1,13 @@
 // Created by Ritee
 // Copyright (c) 2021 Ritee All rights reserved.
 
+#include <eigen3/Eigen/Eigen>
 #include <vector>
 
-#include "Eigen/Eigen"
 #include "RenderingCore.h"
+#include "primitive_impl/SimpleTriangle.h"
 #include "rasterizer_impl/SimpleRasterizer.h"
 #include "shader_impl/SimpleTriShader.h"
-#include "primitive_impl/SimpleTriangle.h"
 
 int main() {
     uint32_t width = 600;
@@ -18,7 +18,7 @@ int main() {
     shader.vertices_ = std::vector<Eigen::Vector3f>{
         {-1, -1, 0}, {1, -1, 0}, {1, 1, 0}, {-1, 1, 0}};
     shader.colors_ = std::vector<Eigen::Vector3f>{COLOR_RED, COLOR_BLUE,
-                                                   COLOR_GREEN, COLOR_BLUE};
+                                                  COLOR_GREEN, COLOR_BLUE};
     shader.indices_ = std::vector<Eigen::Vector3i>{{0, 1, 2}, {0, 2, 3}};
 
     SimpleTriangle triangle{};

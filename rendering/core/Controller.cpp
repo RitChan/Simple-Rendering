@@ -1,10 +1,11 @@
 #include "core/Controller.h"
 
+#include <opencv2/opencv.hpp>
 #include <string>
 
 #include "core/Color.h"
 #include "core/Event.h"
-#include "opencv2/opencv.hpp"
+
 #define ESC 27
 
 void RenderController::render_iamge() {

@@ -3,9 +3,8 @@
 
 #include "SimpleRasterizer.h"
 
+#include <eigen3/Eigen/Eigen>
 #include <iostream>
-
-#include "Eigen/Eigen"
 
 void SimpleRasterizer::rasterize(IPrimitive &primitive) {
     auto bbox = primitive.get_bbox();

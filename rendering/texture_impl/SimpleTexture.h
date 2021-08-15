@@ -4,9 +4,10 @@
 #ifndef RENDERING_TEXTURE_IMPL_SIMPLE_TEXTURE_H
 #define RENDERING_TEXTURE_IMPL_SIMPLE_TEXTURE_H
 
+#include <opencv2/opencv.hpp>
+
 #include "core/Color.h"
 #include "core/Texture.h"
-#include "opencv2/opencv.hpp"
 
 class SimpleTexture : public ITexture {
    public:

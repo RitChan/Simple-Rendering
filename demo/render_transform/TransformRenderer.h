@@ -2,13 +2,14 @@
 // Copyright (c) 2021 Ritee All rights reserved.
 #ifndef RENDER_TRANSFORM_TRANSFORM_RENDERER_H
 #define RENDER_TRANSFORM_TRANSFORM_RENDERER_H
+#include <eigen3/Eigen/Eigen>
+
 #include "RenderingCore.h"
 #include "primitive_impl/SimpleTriangle.h"
 #include "rasterizer_impl/SimpleRasterizer.h"
-#include "Eigen/Eigen"
 
 class TransformRenderer {
-public:
+   public:
     ARasterizer *rasterizer_;
     TriangleMesh *mesh_;
     Camera *camera_;
@@ -20,4 +21,4 @@ public:
     void render();
 };
 
-#endif // RENDER_TRANSFORM_TRANSFORM_RENDERER_H
+#endif  // RENDER_TRANSFORM_TRANSFORM_RENDERER_H

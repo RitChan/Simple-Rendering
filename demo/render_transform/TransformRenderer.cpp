@@ -3,10 +3,9 @@
 #include "TransformRenderer.h"
 
 #include <ctime>
+#include <eigen3/Eigen/Eigen>
 #include <iostream>
-
-#include "Eigen/Eigen"
-#include "opencv2/opencv.hpp"
+#include <opencv2/opencv.hpp>
 
 void TransformRenderer::vertex_shader(uint32_t index,
                                       SimpleTriangle &triangle_out) {

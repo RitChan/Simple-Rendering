@@ -4,9 +4,8 @@
 #ifndef RENDERING_COLOR_H
 #define RENDERING_COLOR_H
 #include <cstdint>
+#include <eigen3/Eigen/Eigen>
 #include <vector>
-
-#include "Eigen/Eigen"
 
 typedef Eigen::Vector3f Color;
 extern Color COLOR_RED;

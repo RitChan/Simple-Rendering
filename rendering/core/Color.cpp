@@ -3,7 +3,7 @@
 
 #include "Color.h"
 
-#include "Eigen/Eigen"
+#include <eigen3/Eigen/Eigen>
 
 Color COLOR_RED = Eigen::Vector3f(1, 0, 0);
 Color COLOR_GREEN = Eigen::Vector3f(0, 1, 0);

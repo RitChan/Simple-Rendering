@@ -3,9 +3,9 @@
 
 #ifndef RENDERING_SHADER_IMPL_SIMPLETRISHADER_H
 #define RENDERING_SHADER_IMPL_SIMPLETRISHADER_H
+#include <eigen3/Eigen/Eigen>
 #include <vector>
 
-#include "Eigen/Eigen"
 #include "core/Primitive.h"
 #include "core/Shader.h"
 

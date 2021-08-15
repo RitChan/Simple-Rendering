@@ -3,9 +3,8 @@
 
 #ifndef RENDERING_TRIANGLEMESH_H
 #define RENDERING_TRIANGLEMESH_H
+#include <eigen3/Eigen/Eigen>
 #include <vector>
-
-#include "Eigen/Eigen"
 
 struct TriangleMesh {
    public:

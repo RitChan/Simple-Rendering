@@ -4,10 +4,10 @@
 #ifndef RENDERING_CORE_TEXTURE_H
 #define RENDERING_CORE_TEXTURE_H
 
-#include "Eigen/Eigen"
+#include <eigen3/Eigen/Eigen>
 
 class ITexture {
-public:
+   public:
     virtual Eigen::Vector3f sample(float u, float v) const = 0;
     virtual ~ITexture() = default;
 };

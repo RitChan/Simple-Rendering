@@ -2,10 +2,9 @@
 // Copyright (c) 2021 Ritee All rights reserved.
 #include "SimpleRenderer.h"
 
+#include <eigen3/Eigen/Eigen>
 #include <iostream>
-
-#include "Eigen/Eigen"
-#include "opencv2/opencv.hpp"
+#include <opencv2/opencv.hpp>
 
 void SimpleRenderer::render() {
     Eigen::Matrix4f world_to_screen = viewport_ * projection_ * view_;

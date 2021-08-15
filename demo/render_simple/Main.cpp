@@ -1,12 +1,12 @@
 //
 // Created by Ritee on 2021/8/8.
 //
+#include <eigen3/Eigen/Eigen>
+#include <opencv2/opencv.hpp>
 #include <vector>
 
-#include "Eigen/Eigen"
 #include "RenderingCore.h"
 #include "SimpleRenderer.h"
-#include "opencv2/opencv.hpp"
 #include "primitive_impl/SimpleTriangle.h"
 #include "rasterizer_impl/SimpleRasterizer.h"
 

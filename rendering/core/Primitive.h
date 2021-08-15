@@ -3,8 +3,9 @@
 
 #ifndef RENDERING_PRIMITIVE_H
 #define RENDERING_PRIMITIVE_H
+#include <eigen3/Eigen/Eigen>
+
 #include "Collider.h"
-#include "Eigen/Eigen"
 
 class IPrimitive {
    public:

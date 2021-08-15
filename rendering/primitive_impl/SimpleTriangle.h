@@ -5,8 +5,8 @@
 #define RENDERING_SIMPLETRIANGLE_H
 
 #include <cmath>
+#include <eigen3/Eigen/Eigen>
 
-#include "Eigen/Eigen"
 #include "RenderingCore.h"
 #include "shader_impl/SimpleTriShader.h"
 
@@ -41,9 +41,15 @@ class SimpleTriangle : public ISimpleTriShaderProco {
     void set_v0(Eigen::Vector3f v) override { v0_ = std::move(v); }
     void set_v1(Eigen::Vector3f v) override { v1_ = std::move(v); }
     void set_v2(Eigen::Vector3f v) override { v2_ = std::move(v); }
-    void set_color0(Eigen::Vector3f color) override { color0_ = std::move(color); }
-    void set_color1(Eigen::Vector3f color) override { color1_ = std::move(color); }
-    void set_color2(Eigen::Vector3f color) override { color2_ = std::move(color); }
+    void set_color0(Eigen::Vector3f color) override {
+        color0_ = std::move(color);
+    }
+    void set_color1(Eigen::Vector3f color) override {
+        color1_ = std::move(color);
+    }
+    void set_color2(Eigen::Vector3f color) override {
+        color2_ = std::move(color);
+    }
 
     Eigen::Vector3f v0_;
     Eigen::Vector3f v1_;
