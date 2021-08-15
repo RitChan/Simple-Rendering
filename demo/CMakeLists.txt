@@ -1,3 +1,4 @@
+include_directories(${PROJECT_SOURCE_DIR}/rendering)
 add_subdirectory(render_simple)
 add_subdirectory(render_transform)
 add_subdirectory(render_shader)

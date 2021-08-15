@@ -6,9 +6,6 @@
 #include <eigen3/Eigen/Eigen>
 
 Eigen::Vector3f SimpleTexture::sample(float u, float v) const {
-    if (u < 0.5 && v < 0.5) {
-        printf("");
-    }
     int col = (int)std::round(image_->cols * u) % image_->cols;
     int row = (int)std::round(image_->rows * v) % image_->rows;
     cv::Vec3b texel = image_->at<cv::Vec3b>(row, col);
