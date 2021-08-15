@@ -4,7 +4,7 @@ project(rendering)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_C_STANDARD 99)
 
-add_compile_options("-Og")
+add_compile_options("-Og" "-Wall")
 
 find_package(OpenCV REQUIRED PATHS)
 
