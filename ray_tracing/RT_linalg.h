@@ -26,18 +26,19 @@ RT_Vec3f normalized_vec3f(const RT_Vec3f *vec);
 
 // Vec4f operations
 RT_Vec4f float_vec4f(float c, const RT_Vec4f *vec);
+void float_vec4f_inplace(float c, RT_Vec4f *vec);
 float vec4f_dot_vec4f(const RT_Vec4f *v0, const RT_Vec4f *v1);
 
 // Mat3f operations
-RT_Mat3f float_mat3f(float c, RT_Mat3f mat);
-void float_mat3f_to_mat3f(float c, const RT_Mat3f *src_mat, RT_Mat3f *dst_mat);
-RT_Mat3f mat3f_mat3f(RT_Mat3f mat0, RT_Mat3f mat1);
-RT_Mat3f inverse_mat3f(RT_Mat3f mat);
+RT_Mat3f float_mat3f(float c, const RT_Mat3f *mat);
+void float_mat3f_inplace(float c, RT_Mat3f *mat);
+RT_Mat3f mat3f_mat3f(const RT_Mat3f *mat0, const RT_Mat3f *mat1);
+RT_Mat3f inverse_mat3f(RT_Mat3f mat);  // Not implemented
 float det_mat3f(const RT_Mat3f *mat);
 
 // Mat4f operations
 RT_Mat4f float_mat4f(float c, const RT_Mat4f *mat);
-void float_mat4f_to_dst(float c, const RT_Mat4f *src_mat, RT_Mat4f *dst_mat);
+void float_mat4f_inplace(float c, const RT_Mat4f *mat);
 RT_Mat4f mat4f_mat4f(const RT_Mat4f *mat0, const RT_Mat4f *mat1);
 RT_Mat4f inverse_mat4f(RT_Mat4f mat);
 float det_mat4f(const RT_Mat4f *mat);
