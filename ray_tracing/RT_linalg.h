@@ -1,7 +1,7 @@
 /**
  * @file RT_linalg.h
  * @author Hao CHEN
- * @brief Linear algebra uitilities
+ * @brief Linear algebra utilities
  */
 
 #ifndef RT_LINALG_H
