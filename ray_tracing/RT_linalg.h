@@ -9,7 +9,7 @@
 #include "RT_struct.h"
 
 // Vec2f operations
-RT_Vec2f float_vec2f(float c, const RT_Vec2f *vec);
+RT_Vec2f RT_float_vec2f(float c, const RT_Vec2f *vec);
 float RT_vec2f_dot_vec2f(const RT_Vec2f *v0, const RT_Vec2f *v1);
 float RT_norm_vec2f(const RT_Vec2f *vec);
 float RT_squared_norm_vec2f(const RT_Vec2f *vec);

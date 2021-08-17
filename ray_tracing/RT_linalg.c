@@ -6,6 +6,7 @@
 
 #include "RT_linalg.h"
 
+#include <float.h>
 #include <math.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -13,13 +14,8 @@
 
 #include "RT_struct.h"
 
-RT_Vec2f float_vec2f(float c, const RT_Vec2f *vec) {
+RT_Vec2f RT_float_vec2f(float c, const RT_Vec2f *vec) {
     RT_Vec2f result;
-    if (vec == NULL) {
-        result.x = 0;
-        result.y = 0;
-        return result;
-    }
     result.x = c * vec->x;
     result.y = c * vec->y;
     return result;
@@ -238,5 +234,44 @@ RT_Mat4f RT_mat4f_mat4f(const RT_Mat4f *mat0, const RT_Mat4f *mat1) {
                  mat0->m32 * mat1->m22 + mat0->m33 * mat1->m32;
     result.m33 = mat0->m30 * mat1->m03 + mat0->m31 * mat1->m13 +
                  mat0->m32 * mat1->m23 + mat0->m33 * mat1->m33;
+    return result;
+}
+
+RT_Vec3f RT_transform_point(const RT_Mat4f *mat4, const RT_Vec3f *vec3) {
+    RT_Vec3f result;
+    result.x = mat4->m00 * vec3->x + mat4->m01 * vec3->y + mat4->m02 * vec3->z +
+               mat4->m03;
+    result.y = mat4->m10 * vec3->x + mat4->m11 * vec3->y + mat4->m12 * vec3->z +
+               mat4->m13;
+    result.z = mat4->m20 * vec3->x + mat4->m21 * vec3->y + mat4->m22 * vec3->z +
+               mat4->m23;
+    float w = mat4->m30 * vec3->x + mat4->m31 * vec3->y + mat4->m32 * vec3->z +
+              mat4->m33;
+    if (fabsf(w) > FLT_EPSILON) {
+        result.x /= w;
+        result.y /= w;
+        result.z /= w;
+    }
+    return result;
+}
+
+RT_Vec3f RT_transform_vector(const RT_Mat4f *mat4, const RT_Vec3f *vec3) {
+    RT_Vec3f result;
+    result.x = mat4->m00 * vec3->x + mat4->m01 * vec3->y + mat4->m02 * vec3->z;
+    result.y = mat4->m10 * vec3->x + mat4->m11 * vec3->y + mat4->m12 * vec3->z;
+    result.z = mat4->m20 * vec3->x + mat4->m21 * vec3->y + mat4->m22 * vec3->z;
+    return result;
+}
+
+RT_Vec4f RT_mat4_vec4(const RT_Mat4f *mat4, const RT_Vec4f *vec4) {
+    RT_Vec4f result;
+    result.x = mat4->m00 * vec4->x + mat4->m01 * vec4->y + mat4->m02 * vec4->z +
+               vec4->w * mat4->m03;
+    result.y = mat4->m10 * vec4->x + mat4->m11 * vec4->y + mat4->m12 * vec4->z +
+               vec4->w * mat4->m13;
+    result.z = mat4->m20 * vec4->x + mat4->m21 * vec4->y + mat4->m22 * vec4->z +
+               vec4->w * mat4->m23;
+    result.w = mat4->m30 * vec4->x + mat4->m31 * vec4->y + mat4->m32 * vec4->z +
+               vec4->w * mat4->m33;
     return result;
 }
