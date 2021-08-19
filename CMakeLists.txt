@@ -8,7 +8,6 @@ add_compile_options("-Og" "-Wall")
 
 find_package(OpenCV REQUIRED)
 
-
 add_subdirectory(rendering)
 add_subdirectory(demo)
 add_subdirectory(ray_tracing)

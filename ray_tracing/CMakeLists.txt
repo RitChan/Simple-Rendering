@@ -1,9 +1,10 @@
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
-find_package(SDL2 REQUIRED)
-link_libraries(mingw32 SDL2::SDL2main SDL2::SDL2 SDL2_image gsl)
-add_library(rt_lib 
-            RT_assert.c
-            RT_linalg.c
-            RT_create.c)
-add_executable(rt_main RT_main.c)
-target_link_libraries(rt_main rt_lib)
+cmake_minimum_required(VERSION 3.16)
+project(ray_tracing)
+set(CMAKE_CXX_STANDARD 11)
+include_directories(${CMAKE_SOURCE_DIR})
+link_libraries(${OpenCV_LIBS})
+include_directories(${OpenCV_INCLUDE_DIRS})
+add_library(RayTracing
+    Structure.cpp
+    Shading.cpp
+    Data.cpp)
