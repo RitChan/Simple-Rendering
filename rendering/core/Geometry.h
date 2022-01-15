@@ -24,4 +24,7 @@ Eigen::Matrix4f create_viewport(uint32_t width, uint32_t height);
 Eigen::Vector3f transform_point(const Eigen::Matrix4f &transform,
                                 const Eigen::Vector3f &point);
 
+Eigen::Vector4f transform_point_w(const Eigen::Matrix4f &transform,
+                                  const Eigen::Vector3f &point);
+
 #endif  // RENDERING_GEOMETRY_H

@@ -6,7 +6,7 @@
 #include <eigen3/Eigen/Eigen>
 
 [[nodiscard]] Eigen::Vector3f TextureTriangle::get_color() const {
-    Eigen::Vector2f interpolated_uv = alpha * uv0_ + beta * uv1_ + gamma * uv2_;
+    Eigen::Vector2f interpolated_uv = alpha_uv * uv0_ + beta_uv * uv1_ + gamma_uv * uv2_;
     return texture_->sample(interpolated_uv.x(), interpolated_uv.y());
 }
 
@@ -18,4 +18,11 @@ void TextureTriangle::update_barycentric() {
     alpha = barycentric.x();
     beta = barycentric.y();
     gamma = barycentric.z();
+    float alpha_h = alpha * w_inv_[0];
+    float beta_h = beta * w_inv_[1];
+    float gamma_h = gamma * w_inv_[2];
+    float w = 1 / (alpha_h + beta_h + gamma_h);
+    alpha_uv = alpha_h * w;
+    beta_uv = beta_h * w;
+    gamma_uv = gamma_h * w;
 }

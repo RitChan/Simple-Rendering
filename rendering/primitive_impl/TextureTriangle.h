@@ -38,6 +38,8 @@ class TextureTriangle : public IPrimitive {
     Eigen::Vector2f uv0_;
     Eigen::Vector2f uv1_;
     Eigen::Vector2f uv2_;
+    Eigen::Vector3f w_;
+    Eigen::Vector3f w_inv_;
     ITexture *texture_;
 
    protected:
@@ -47,6 +49,9 @@ class TextureTriangle : public IPrimitive {
     float alpha;
     float beta;
     float gamma;
+    float alpha_uv;
+    float beta_uv;
+    float gamma_uv;
 };
 
 #endif

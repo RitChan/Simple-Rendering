@@ -15,6 +15,12 @@ Eigen::Vector3f transform_point(const Eigen::Matrix4f &transform,
             result4f.z() / result4f.w()};
 }
 
+Eigen::Vector4f transform_point_w(const Eigen::Matrix4f &transform,
+                                  const Eigen::Vector3f &point) {
+    auto point4f = Eigen::Vector4f(point.x(), point.y(), point.z(), 1);
+    return transform * point4f;
+}
+
 Eigen::Matrix4f create_view_matrix(const Eigen::Vector3f &camera_position,
                                    const Eigen::Vector3f &camera_forward,
                                    const Eigen::Vector3f &camera_up) {
