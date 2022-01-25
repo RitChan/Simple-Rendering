@@ -13,4 +13,5 @@ add_library(Rendering STATIC
         rasterizer_impl/SimpleRasterizer.cpp
         shader_impl/SimpleTriShader.cpp
         shader_impl/TextureTriShader.cpp
-        texture_impl/SimpleTexture.cpp)
+        texture_impl/SimpleTexture.cpp
+        texture_impl/BilinearTexture.cpp)

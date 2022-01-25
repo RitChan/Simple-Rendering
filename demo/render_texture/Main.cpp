@@ -10,7 +10,7 @@
 #include "RenderingCore.h"
 #include "rasterizer_impl/SimpleRasterizer.h"
 #include "shader_impl/TextureTriShader.h"
-#include "texture_impl/SimpleTexture.h"
+#include "texture_impl/BilinearTexture.h"
 
 class RotationEvent : public ILoopEvent {
    public:
@@ -60,7 +60,7 @@ int main() {
     shader.uv_ = std::vector<Eigen::Vector2f>{{0, 0}, {1, 0}, {1, 1}, {0, 1}};
     shader.indices_ = std::vector<Eigen::Vector3i>{{0, 1, 2}, {0, 2, 3}};
     shader.model_ = create_model_matrix({0, 0, 0}, {0, 0, 1}, {0, 1, 0});
-    auto view = create_view_matrix({0, 0, 5}, {0, 0, -1}, {0, 1, 0});
+    auto view = create_view_matrix({0, 0, 4}, {0, 0, -1}, {0, 1, 0});
     auto project =
         create_perspective(M_PI_4, (float)WIDTH / (float)HEIGHT, 0.1f, 100.f);
     auto viewport = create_viewport(WIDTH, HEIGHT);
@@ -73,7 +73,7 @@ int main() {
     event.radius_per_second = M_PI_4;
     EventPool::instance().add_event(event);
 
-    SimpleTexture texture{};
+    BilinearTexture texture{};
     texture.image_ = &image;
     shader.texture_ = &texture;
 
