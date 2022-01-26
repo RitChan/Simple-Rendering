@@ -20,6 +20,6 @@ Eigen::Vector3f BilinearTexture::sample(float u, float v) const {
     auto tx10 = image_->at<cv::Vec3b>(py0, px1);
     auto tx01 = image_->at<cv::Vec3b>(py1, px0);
     auto tx11 = image_->at<cv::Vec3b>(py1, px1);
-    auto tx = u0 * v0 * tx00 + u0 * v1 * tx01 + u1 * v0 * tx10 + u1 * v1 * tx11;
+    auto tx = u1 * v1 * tx00 + u1 * v0 * tx01 + u0 * v1 * tx10 + u0 * v0 * tx11;
     return Eigen::Vector3f(tx[0] / 255.f, tx[1] / 255.f, tx[2] / 255.f);
 }

@@ -42,8 +42,7 @@ uint32_t MipmapShader::set_texture_with_mipmap(BilinearTexture &tex,
         }
         mipmap_[i] = BilinearTexture();
         mipmap_image_[i] = cv::Mat();
-        cv::resize(*tex.image_, mipmap_image_[i], {width, height}, 0, 0,
-                   cv::INTER_AREA);
+        cv::resize(*tex.image_, mipmap_image_[i], {width, height}, 0, 0, cv::INTER_AREA);
         mipmap_[i].image_ = &mipmap_image_[i];
     }
     return mipmap_level_;
