@@ -18,7 +18,8 @@ void SimpleRasterizer::rasterize(IPrimitive &primitive) {
             if (primitive.is_inside()) {
                 float interpolated_z = primitive.interpolated_z();
                 // right handed
-                if (interpolated_z > z_buffer_(row, col)) {
+                if (std::abs(interpolated_z) < 1 &&
+                    interpolated_z > z_buffer_(row, col)) {
                     z_buffer_(row, col) = interpolated_z;
                     set_pixel(row, col, primitive.get_color());
                 }

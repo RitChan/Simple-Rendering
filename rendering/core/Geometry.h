@@ -8,6 +8,8 @@
 
 Eigen::Matrix4f create_rotation_y(float radius);
 
+Eigen::Matrix4f create_rotation_x(float radius);
+
 Eigen::Matrix4f create_model_matrix(const Eigen::Vector3f &position,
                                     const Eigen::Vector3f &forward,
                                     const Eigen::Vector3f &up);
@@ -27,4 +29,8 @@ Eigen::Vector3f transform_point(const Eigen::Matrix4f &transform,
 Eigen::Vector4f transform_point_w(const Eigen::Matrix4f &transform,
                                   const Eigen::Vector3f &point);
 
+void calculate_barycentric(float x, float y, const Eigen::Vector3f &v0,
+                           const Eigen::Vector3f &v1, const Eigen::Vector3f &v2,
+                           const Eigen::Vector3f &w_inv, Eigen::Vector3f &out,
+                           Eigen::Vector3f &out_uv);
 #endif  // RENDERING_GEOMETRY_H
