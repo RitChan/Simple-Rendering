@@ -12,6 +12,7 @@ extern Color COLOR_RED;
 extern Color COLOR_GREEN;
 extern Color COLOR_BLUE;
 extern Color COLOR_BLACK;
+extern Color COLOR_WHITE;
 
 struct RGB {
    public:

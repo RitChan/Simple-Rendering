@@ -12,10 +12,10 @@ Eigen::Vector3f BilinearTexture::sample(float u, float v) const {
     float u1 = x1 - x;
     float v0 = y - y0;
     float v1 = y1 - y;
-    int px0 = (int)std::max(0.f, x0);
-    int py0 = (int)std::max(0.f, y0);
-    int px1 = (int)std::min((float)image_->cols-1, x1);
-    int py1 = (int)std::min((float)image_->rows-1, y1);
+    int px0 = std::min(image_->cols-1, (int)std::max(0.f, x0));
+    int py0 = std::min(image_->rows-1, (int)std::max(0.f, y0));
+    int px1 = std::max(0, (int)std::min((float)image_->cols-1, x1));
+    int py1 = std::max(0, (int)std::min((float)image_->rows-1, y1));
     auto tx00 = image_->at<cv::Vec3b>(py0, px0);
     auto tx10 = image_->at<cv::Vec3b>(py0, px1);
     auto tx01 = image_->at<cv::Vec3b>(py1, px0);

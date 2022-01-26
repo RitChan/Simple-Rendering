@@ -31,8 +31,9 @@ void RenderController::loop_forever(const std::string &win_name) {
     cv::Mat img_mat = cv::Mat(rasterizer_->height(), rasterizer_->width(),
                               CV_32FC3, rasterizer_->data());
     cv::flip(img_mat, img_mat, 0);
+    auto last_tick = std::clock();
     while (true) {
-        rasterizer_->clear(COLOR_BLACK);
+        rasterizer_->clear(bg_color);
         for (auto shader_ptr : shader_ptrs_) {
             shader_ptr->reset();
             while (!shader_ptr->exhausted()) {
@@ -44,5 +45,12 @@ void RenderController::loop_forever(const std::string &win_name) {
         cv::cvtColor(img_mat, img_mat, cv::COLOR_RGB2BGR);
         cv::imshow(win_name, img_mat);
         if (cv::waitKey(1) == ESC) break;
+        if (show_fps) {
+            auto cur_tick = std::clock();
+            auto diff_tick = cur_tick - last_tick;
+            double frame_cost_ms = 1000 * diff_tick / CLOCKS_PER_SEC;
+            last_tick = cur_tick;
+            std::cout << "\rFPS = " << 1000 / frame_cost_ms; 
+        }
     }
 }

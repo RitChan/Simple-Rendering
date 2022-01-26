@@ -23,6 +23,9 @@ public:
     virtual void loop_forever(const std::string &win_name);
 
     virtual ~RenderController() = default;
+
+    Eigen::Vector3f bg_color = COLOR_WHITE;
+    bool show_fps = false;
 };
 
 
