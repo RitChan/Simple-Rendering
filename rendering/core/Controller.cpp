@@ -53,4 +53,5 @@ void RenderController::loop_forever(const std::string &win_name) {
             std::cout << "\rFPS = " << 1000 / frame_cost_ms; 
         }
     }
+    if (show_fps) std::cout << std::endl;
 }

@@ -41,15 +41,13 @@ class RotationEvent : public ILoopEvent {
 int main() {
     const uint32_t WIDTH = 600;
     const uint32_t HEIGHT = 400;
-    const std::string IMG_PATH =
-        "C:\\Users\\Ritee\\MyFiles\\r-project\\c-"
-        "cpp\\rendering\\resource\\BigGrids.png";
+    const std::string IMG_PATH = "..\\..\\..\\resource\\test_uv.png";
     cv::Mat image = cv::imread(IMG_PATH);
     cv::cvtColor(image, image, cv::COLOR_BGR2RGB);
     cv::flip(image, image, 0);
     int half_img_width = image.cols / 2;
     int half_img_height = image.rows / 2;
-    float image_saclar = 1000.f;
+    float image_saclar = 300.f;
     float canvas_half_width = half_img_width / image_saclar;
     float canvas_half_height = half_img_height / image_saclar;
 
@@ -62,10 +60,10 @@ int main() {
     shader.uv_ = std::vector<Eigen::Vector2f>{{0, 0}, {1, 0}, {1, 1}, {0, 1}};
     shader.indices_ = std::vector<Eigen::Vector3i>{{0, 1, 2}, {0, 2, 3}};
     shader.model_ = create_model_matrix({0, 0, 0}, {0, 0, 1}, {0, 1, 0});
-    // shader.model_ = create_rotation_x(M_PI_2) * shader.model_;
-    // shader.model_ = create_rotation_y(M_PI_4) * shader.model_;
+    shader.model_ = create_rotation_x(-M_PI_2) * shader.model_;
+    shader.model_ = create_rotation_y(M_PI_4 + 0.2) * shader.model_;
     // auto view = create_view_matrix({0, 1, 5}, {0, -0.2, -1}, {0, 1, 0});
-    auto view = create_view_matrix({0, 0, 4}, {0, 0, -1}, {0, 1, 0});
+    auto view = create_view_matrix({0, 1, 3}, {0, -0.5, -1}, {0, 1, 0});
     auto project =
         create_perspective(M_PI_4, (float)WIDTH / (float)HEIGHT, 0.1f, 100.f);
     auto viewport = create_viewport(WIDTH, HEIGHT);
@@ -76,19 +74,20 @@ int main() {
     RotationEvent event;
     event.rotaion_obj = &shader;
     event.radius_per_second = M_PI_4;
-    EventPool::instance().add_event(event);
+    // EventPool::instance().add_event(event);
 
     BilinearTexture texture{};
     texture.image_ = &image;
     // shader.texture_ = &texture;
-    shader.set_texture_with_mipmap(texture, 8);
+    shader.set_texture_with_mipmap(texture, 7);
 
     SimpleRasterizer rasterizer = SimpleRasterizer(WIDTH, HEIGHT);
     RenderController controller{};
     controller.rasterizer_ = &rasterizer;
     controller.shader_ptrs_.push_back(&shader);
     controller.bg_color = COLOR_BLACK;
-    controller.loop_forever("Kamisato Ayakas");
+    controller.show_fps = true;
+    controller.loop_forever("Mipmap");
     std::cout << "Done." << std::endl;
     return 0;
 }
