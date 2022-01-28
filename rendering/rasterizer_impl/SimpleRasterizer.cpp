@@ -5,6 +5,7 @@
 
 #include <eigen3/Eigen/Eigen>
 #include <iostream>
+#include <cstdlib>
 
 void SimpleRasterizer::rasterize(IPrimitive &primitive) {
     auto bbox = primitive.get_bbox();

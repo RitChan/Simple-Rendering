@@ -8,12 +8,16 @@ add_library(Rendering STATIC
         core/Event.cpp
         core/Controller.cpp
         core/Factory.cpp
+        core/TriangleMesh.cpp
         primitive_impl/SimpleTriangle.cpp
         primitive_impl/TextureTriangle.cpp
         primitive_impl/MipmapTriangle.cpp
+        primitive_impl/DepthTriangle.cpp
         rasterizer_impl/SimpleRasterizer.cpp
         shader_impl/SimpleTriShader.cpp
         shader_impl/TextureTriShader.cpp
         shader_impl/MipmapShader.cpp
+        shader_impl/MeshShader.cpp
+        shader_impl/MeshDepthShader.cpp
         texture_impl/SimpleTexture.cpp
         texture_impl/BilinearTexture.cpp)

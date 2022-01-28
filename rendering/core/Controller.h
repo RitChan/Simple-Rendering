@@ -25,7 +25,8 @@ public:
     virtual ~RenderController() = default;
 
     Eigen::Vector3f bg_color = COLOR_WHITE;
-    bool show_fps = false;
+    bool show_fps_ = false;
+    bool show_image_ = true;
 };
 
 

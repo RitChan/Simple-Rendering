@@ -41,7 +41,7 @@ class SimpleTriShader : public IShader {
     Eigen::Matrix4f *view_{nullptr};
     Eigen::Matrix4f *projection_{nullptr};
     Eigen::Matrix4f *viewport_{nullptr};
-    ISimpleTriShaderProco *primitve_;
+    ISimpleTriShaderProco *primitive_;
 
    private:
     uint32_t index_ = 0;

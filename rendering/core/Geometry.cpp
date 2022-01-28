@@ -21,6 +21,13 @@ Eigen::Vector4f transform_point_w(const Eigen::Matrix4f &transform,
     return transform * point4f;
 }
 
+Eigen::Vector3f transform_vector(const Eigen::Matrix4f &transform,
+                                 const Eigen::Vector3f &vec) {
+    auto vec4f = Eigen::Vector4f(vec.x(), vec.y(), vec.z(), 0);
+    auto v = transform * vec4f;
+    return Eigen::Vector3f(v[0], v[1], v[2]);
+}
+
 void calculate_barycentric(float x, float y, const Eigen::Vector3f &v0,
                            const Eigen::Vector3f &v1, const Eigen::Vector3f &v2,
                            const Eigen::Vector3f &w_inv, Eigen::Vector3f &out,
@@ -36,6 +43,15 @@ void calculate_barycentric(float x, float y, const Eigen::Vector3f &v0,
     out_uv.x() = alpha_h * w;
     out_uv.y() = beta_h * w;
     out_uv.z() = gamma_h * w;
+}
+
+void calculate_barycentric(float x, float y, const Eigen::Vector3f &v0,
+                           const Eigen::Vector3f &v1, const Eigen::Vector3f &v2,
+                           Eigen::Vector3f &out) {
+    Eigen::Matrix3f m;
+    m << v0.x(), v1.x(), v2.x(), v0.y(), v1.y(), v2.y(), 1, 1, 1;
+    Eigen::Vector3f b(x, y, 1);
+    out = m.inverse() * b;
 }
 
 Eigen::Matrix4f create_view_matrix(const Eigen::Vector3f &camera_position,
@@ -61,15 +77,22 @@ Eigen::Matrix4f create_perspective(float fov_radius, float aspect_ratio,
     float width = height * aspect_ratio;
 
     Eigen::Matrix4f S;
-    S << 2 / width, 0, 0, 0, 0, 2 / height, 0, 0, 0, 0, 2 / (z_far - z_near), 0,
+    S << 2 / width, 0, 0, 0, 
+        0, 2 / height, 0, 0, 
+        0, 0, 2 / (z_near - z_far), 0,
         0, 0, 0, 1;
 
     Eigen::Matrix4f T;
-    T << 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -(z_near + z_far) / 2, 0, 0, 0, 1;
+    T << 1, 0, 0, 0, 
+        0, 1, 0, 0, 
+        0, 0, 1, -(z_near + z_far) / 2, 
+        0, 0, 0, 1;
 
     Eigen::Matrix4f M;
-    M << z_near, 0, 0, 0, 0, z_near, 0, 0, 0, 0, z_near + z_far,
-        -z_near * z_far, 0, 0, 1, 0;
+    M << z_near, 0, 0, 0, 
+        0, z_near, 0, 0, 
+        0, 0, z_near + z_far, -z_near * z_far, 
+        0, 0, 1, 0;
 
     return S * T * M;
 }
@@ -110,4 +133,14 @@ Eigen::Matrix4f create_model_matrix(const Eigen::Vector3f &position,
     result << x.x(), y.x(), z.x(), position.x(), x.y(), y.y(), z.y(),
         position.y(), x.z(), y.z(), z.z(), position.z(), 0, 0, 0, 1;
     return result;
+}
+
+Eigen::Matrix4f create_scale_matrix(float s0, float s1, float s2) {
+    Eigen::Matrix4f result;
+    result << s0, 0, 0, 0, 0, s1, 0, 0, 0, 0, s2, 0, 0, 0, 0, 1;
+    return result;
+}
+
+Eigen::Matrix4f create_scale_matrix(float s) {
+    return create_scale_matrix(s, s, s);
 }

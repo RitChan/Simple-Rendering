@@ -14,6 +14,10 @@ Eigen::Matrix4f create_model_matrix(const Eigen::Vector3f &position,
                                     const Eigen::Vector3f &forward,
                                     const Eigen::Vector3f &up);
 
+Eigen::Matrix4f create_scale_matrix(float s0, float s1, float s2);
+
+Eigen::Matrix4f create_scale_matrix(float s);
+
 Eigen::Matrix4f create_view_matrix(const Eigen::Vector3f &camera_position,
                                    const Eigen::Vector3f &camera_forward,
                                    const Eigen::Vector3f &camera_up);
@@ -29,8 +33,15 @@ Eigen::Vector3f transform_point(const Eigen::Matrix4f &transform,
 Eigen::Vector4f transform_point_w(const Eigen::Matrix4f &transform,
                                   const Eigen::Vector3f &point);
 
+Eigen::Vector3f transform_vector(const Eigen::Matrix4f &transform,
+                                 const Eigen::Vector3f &vec);
+
 void calculate_barycentric(float x, float y, const Eigen::Vector3f &v0,
                            const Eigen::Vector3f &v1, const Eigen::Vector3f &v2,
                            const Eigen::Vector3f &w_inv, Eigen::Vector3f &out,
                            Eigen::Vector3f &out_uv);
+
+void calculate_barycentric(float x, float y, const Eigen::Vector3f &v0,
+                           const Eigen::Vector3f &v1, const Eigen::Vector3f &v2,
+                           Eigen::Vector3f &out);
 #endif  // RENDERING_GEOMETRY_H

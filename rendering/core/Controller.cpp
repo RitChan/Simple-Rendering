@@ -9,6 +9,7 @@
 #define ESC 27
 
 void RenderController::render_iamge() {
+    rasterizer_->clear(bg_color);
     for (auto shader_ptr : shader_ptrs_) {
         shader_ptr->reset();
         while (!shader_ptr->exhausted()) {
@@ -21,6 +22,7 @@ void RenderController::render_iamge() {
 void RenderController::show_image(const std::string &win_name) {
     cv::Mat img_mat = cv::Mat(rasterizer_->height(), rasterizer_->width(),
                               CV_32FC3, rasterizer_->data());
+    cv::cvtColor(img_mat, img_mat, cv::COLOR_RGB2BGR);
     cv::flip(img_mat, img_mat, 0);
     cv::imshow(win_name, img_mat);
     cv::waitKey();
@@ -43,15 +45,17 @@ void RenderController::loop_forever(const std::string &win_name) {
         EventPool::instance().update_all();
         cv::cvtColor(img_mat, img_mat, cv::COLOR_RGB2BGR);
         cv::flip(img_mat, img_mat, 0);
-        cv::imshow(win_name, img_mat);
-        if (cv::waitKey(1) == ESC) break;
-        if (show_fps) {
+        if (show_image_) {
+            cv::imshow(win_name, img_mat);
+            if (cv::waitKey(1) == ESC) break;
+        }
+        if (show_fps_) {
             auto cur_tick = std::clock();
             auto diff_tick = cur_tick - last_tick;
             double frame_cost_ms = 1000 * diff_tick / CLOCKS_PER_SEC;
             last_tick = cur_tick;
-            std::cout << "\rFPS = " << 1000 / frame_cost_ms; 
+            std::cout << "\rFPS = " << 1000 / frame_cost_ms;
         }
     }
-    if (show_fps) std::cout << std::endl;
+    if (show_fps_) std::cout << std::endl;
 }

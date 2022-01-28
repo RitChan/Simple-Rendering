@@ -86,7 +86,7 @@ int main() {
     controller.rasterizer_ = &rasterizer;
     controller.shader_ptrs_.push_back(&shader);
     controller.bg_color = COLOR_BLACK;
-    controller.show_fps = true;
+    controller.show_fps_ = true;
     controller.loop_forever("Mipmap");
     std::cout << "Done." << std::endl;
     return 0;

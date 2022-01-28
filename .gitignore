@@ -67,6 +67,7 @@ dkms.conf
 *.lo
 *.o
 *.obj
+!resource/*.obj
 
 # Precompiled Headers
 *.gch

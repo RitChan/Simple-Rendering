@@ -4,6 +4,7 @@
 #ifndef RENDERING_TRIANGLEMESH_H
 #define RENDERING_TRIANGLEMESH_H
 #include <eigen3/Eigen/Eigen>
+#include <string>
 #include <vector>
 
 struct TriangleMesh {
@@ -20,4 +21,6 @@ struct TriangleMesh {
     std::vector<Eigen::Vector3i> indices;
     Eigen::Matrix4f world_mat;
 };
+
+bool load_obj_meshes(const std::string &obj_path, std::list<TriangleMesh *> &out);
 #endif  // RENDERING_TRIANGLEMESH_H
