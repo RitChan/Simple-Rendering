@@ -16,7 +16,7 @@ public:
     std::list<IShader *> shader_ptrs_{};
     ARasterizer *rasterizer_{nullptr};
 
-    void render_iamge();
+    void render_image();
 
     void show_image(const std::string &win_name);
 

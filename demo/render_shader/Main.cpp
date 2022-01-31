@@ -48,7 +48,7 @@ int main() {
     controller.rasterizer_ = &rasterizer;
     controller.shader_ptrs_.push_back(&shader);
 
-    controller.render_iamge();
+    controller.render_image();
     controller.show_image("Demo VShader");
     return 0;
 }

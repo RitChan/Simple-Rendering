@@ -8,7 +8,7 @@
 
 #define ESC 27
 
-void RenderController::render_iamge() {
+void RenderController::render_image() {
     rasterizer_->clear(bg_color);
     for (auto shader_ptr : shader_ptrs_) {
         shader_ptr->reset();

@@ -47,8 +47,8 @@ int main() {
     controller.show_fps_ = true;
     controller.show_image_ = true;
     controller.loop_forever("Obj Loader (Depth)");
-    // controller.render_iamge();
-    // controller.render_iamge();
+    // controller.render_image();
+    // controller.render_image();
     // controller.show_image("Depth");
     return 0;
 }

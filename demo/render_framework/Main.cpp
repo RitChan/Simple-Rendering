@@ -101,7 +101,7 @@ int main() {
     controller.rasterizer_ = &rasterizer;
     auto shader_ptrs = std::list<IShader *>();
     controller.shader_ptrs_.push_back(&shader);
-    controller.render_iamge();
+    controller.render_image();
     controller.show_image("Random Color");
     return 0;
 }
