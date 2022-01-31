@@ -9,6 +9,8 @@ add_library(Rendering STATIC
         core/Controller.cpp
         core/Factory.cpp
         core/TriangleMesh.cpp
+        framework/GeneralPrimitive.cpp
+        framework/GeneralShader.cpp
         primitive_impl/SimpleTriangle.cpp
         primitive_impl/TextureTriangle.cpp
         primitive_impl/MipmapTriangle.cpp

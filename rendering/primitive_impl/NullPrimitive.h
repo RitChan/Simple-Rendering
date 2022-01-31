@@ -2,6 +2,7 @@
 #define NULLPRIMITIVE_H
 
 #include "core/Primitive.h"
+#include "core/Color.h"
 
 class NullPrimitive : public IPrimitive {
     [[nodiscard]] virtual BoundingBox get_bbox() const override {
